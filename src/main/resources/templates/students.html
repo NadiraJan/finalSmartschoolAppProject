@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Management System</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+
+
+    <title></title>
+    <link rel="stylesheet" href="//kendo.cdn.telerik.com/2015.3.930/styles/kendo.common-material.min.css"/>
+    <link rel="stylesheet" href="//kendo.cdn.telerik.com/2015.3.930/styles/kendo.material.min.css"/>
+
+    <script src="//kendo.cdn.telerik.com/2015.3.930/js/jquery.min.js"></script>
+    <script src="//kendo.cdn.telerik.com/2015.3.930/js/kendo.all.min.js"></script>
+
+    <link th:href="@{/css/deletebutton.css}" rel="stylesheet" type="text/css">
+    <link th:href="@{/css/editbutton.css}" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <!-- Brand -->
+    <a class="navbar-brand" href="#">SMARTSHOOL SYSTEM</a>
+
+    <!-- Links -->
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" th:href="@{/students}">Student Management </a>
+        </li>
+
+    </ul>
+    <a th:href="@{/admin/home}">BackToAdmin</a>
+
+</nav>
+<br>
+
+<div class="container">
+    <div class="row">
+        <h1>List Students</h1>
+    </div>
+    <table class="table table-sriped table-bordered">
+        <thead class="table-dark">
+        <tr>
+            <th>Student First Name</th>
+            <th>Student Last Name</th>
+            <th>Student Email</th>
+            <th>Student Password</th>
+            <th>Student Age</th>
+            <th>Student Gender</th>
+            <th>Student Grade</th>
+         <!--   <th>ClassTeacher ID</th>!-->
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="student: ${students}">
+            <th th:text="${student.firstName}"></th>
+            <th th:text="${student.lastName}"></th>
+            <th th:text="${student.email}"></th>
+            <th th:text="${student.password}"></th>
+            <th th:text="${student.age}"></th>
+            <th th:text="${student.gender}"></th>
+            <th th:text="${student.grade}"></th>
+           <!-- <th th:text="${student.classteacher_id}"></th>!-->
+
+
+
+            <td>
+                <a th:href="@{/students/edit/{id}(id=${student.id})}"
+                   class="k-button k-edit-button" href="\\#">
+                     <span class="k-icon k-edit">
+                     </span></a></td>
+            <td>
+                <button type="button">
+                    <a th:href="@{/students/{id}(id=${student.id})}"
+                       class="btn btn-danger btn-xs dt-delete">
+                    </a></button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="row">
+        <div class="col-lg-3">
+            <a th:href="@{/students/new}"
+               type="button" id="add-order" class="btn gradient white">ADD</button></a>
+
+        </div>
+    </div>
+</div>
+<script th:src="@{/js/students.js}"></script>
+<script th:src="@{/js/editbutton.js}"></script>
+
+</body>
+</html>

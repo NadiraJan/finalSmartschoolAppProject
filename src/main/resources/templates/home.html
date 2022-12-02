@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+
+    <head>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SMARTSCHOOL APP</title>
+    <link th:href= "@{/css/home.css}" rel="stylesheet" type="text/css">
+
+
+<div style="background-image:url('images/img2.jpg');
+        background-size:100% 100%;height:750px";></div>
+
+</head>
+<body>
+
+
+<div align="center">
+
+    <h4><a th:href="@{/login/getLogin}">Login</a></h4>
+    <h4><a th:href="@{/register}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></h4>
+
+
+    <!--  <h4><a th:href="@{/admin/login}">ClassTeacher</a></h4>
+      <h4><a th:href="@{/student/login}">Student</a></h4>!-->
+
+
+</div>
+
+
+<div class="float-container">
+</div>
+
+<div class="float-child">
+
+    <div class="wrapper d-flex align-items-stretch">
+             <div class="img bg-wrap text-center py-4" style="background-image: url(images/bg_1.jpg);">
+                <div class="user-logo">
+                    <div class="img" style="background-image: url(images/logo.jpg);"></div>
+                  <!--  <h2><a th:href="@{'/students/'}">Go To Students</a></h2>!-->
+                </div>
+            </div> </div></div>
+
+<!--<a href="send-mail">Send mail</a>!-->
+
+<div class="homepage-welcome">
+    <div class="homepage-welcome-in" >
+        <h1><span>Welcom<span id="sparkles">e</span></span></h1>
+    </div>
+</div>
+
+<style type="text/css">.homepage-welcome .homepage-welcome-in h1 span {
+	background-image: linear-gradient(to bottom, #bc9307, #bc9307, #bc9307, #dec381, #fdfbf7, #fcfbf6, #fcfbf6);
+background-image: linear-gradient(to bottom, #fcfbf6, #fcfbf6, #fdfbf7, #dec381, #bc9307, #bc9307, #bc9307);
+	-webkit-text-stroke: 2px #bd940b;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	-webkit-animation: fadeIn 1500ms ease-in, reveal 4000ms ease-in-out forwards 500ms, glow 3500ms infinite linear 3500ms;
+}
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+    transform: rotate(20deg);
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+    transform: rotate(20deg);
+  }
+}
+</style>
+<style type="text/css">
+@-webkit-keyframes reveal {
+  20% {
+    letter-spacing: 8px;
+  }
+  100% {
+    background-size: 100% 100%;
+  }
+}
+@keyframes reveal {
+  20% {
+    letter-spacing: 8px;
+  }
+  100% {
+    background-size: 100% 100%;
+  }
+}
+@-webkit-keyframes glow {
+  20% {
+background-image: linear-gradient(to bottom, #fcfbf6, #fcfbf6, #fdfbf7, #dec381, #bc9307, #bc9307, #bc9307);
+  }
+}
+@keyframes glow {
+  20% {
+background-image: linear-gradient(to bottom, #fcfbf6, #fcfbf6, #fdfbf7, #dec381, #bc9307, #bc9307, #bc9307);
+  }
+}
+
+</style>
+<script type="text/javascript" th:src="@{/js/home.js}"></script>
+</body>
+</html>

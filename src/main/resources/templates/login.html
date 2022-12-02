@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<title>Registration and Login App</title>
+<link rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+      crossorigin="anonymous">
+<link th:href="@{/css/login.css}" rel="stylesheet" type="text/css">
+<div style="background-image:url('images/img3.jpg');
+        background-size:100% 100%;height:750px";></div>
+
+
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+
+
+<form th:action="@{/login/postlogin}" method="post">
+    <div class="mb-4 text-center">
+        <h1> School management</h1>
+    </div>
+    <div class="form-group">
+        <label for="email">email</label>
+        <input type="text" class="form-control" id="email" name="email"
+               placeholder="email" autofocus="autofocus">
+    </div>
+    <div class="form-group">
+        <label for="password">password</label>
+        <input type="password" name="password" class="form-control"
+               placeholder="Enter password" />
+    </div>
+    <div class="form-group">
+        <laber for="role">sign-In As</laber>
+        <select name="role" id="role" class="form-control">
+            <option value="admin">ClassTeacher</option>
+            <option value="student">Student</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <div class="row">
+            <div class="col-sm-6 col-sm-offset-3">
+                <input type="submit" name="login-submit" id="login-submit"
+                       class="form-control btn btn-primary" value="log in" />
+            </div>
+        </div>
+    </div>
+</form>
+</div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,14 @@
+package nadira.com.finalSmartschoolAppProject.entities;
+
+import lombok.Data;
+
+@Data
+public class ClassTeacherCreateDto {
+    private String firstName;
+    private String lastName;
+    private String email;
+    private String password;
+    private int phoneNumber;
+    private Long resultsId;
+    private Long classTeacherId;
+}

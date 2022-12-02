@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Welcome STUDENT PAGE</title>
+    <link th:href="@{/css/studenthome.css}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>Navbars</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body class="page">
+<h1>STUDENT PAGE</h1>
+
+
+<div align="left">
+  <navbar class="menu">
+    <ul class="list">
+
+        <li class="list__item"> <p>Your user name is: <b>[[${#request.userPrincipal.principal.username}]]</b></p></li>
+        <li class="list__item"><a class="list__link" href="/">Home</a></li>
+        <li class="list__item dropbtn">
+            <a class="list__link" href="#">Go To<i class="list__icon fa fa-caret-down"></i></a>
+            <div class="list__dropdown-content">
+                <a href="/timetable" class="list__link list__link_drop">SchoolTimeTable</a>
+                <a href="/results" class="list__link list__link_drop">My Results</a>
+                <a href="https://www.atheneumantwerpen.be/nieuws/" class="list__link list__link_drop">News</a>
+            </div>
+        </li>
+        <li class="list__item"><a class="list__link" href="#">Send e-mail</a></li>
+
+        <form th:action="@{/student/logout}" method="post">
+            <input type="submit" value="Logout" />
+        </form>
+
+    </ul>
+</navbar>
+<div class="empty-div"></div>
+
+   <!-- <p>Your user name is: <b>[[${#request.userPrincipal.principal.username}]]</b></p>!-->
+
+</div>
+
+
+
+<!-- CALENDER-->
+
+<script th:src="@{/js/calendar.js}"></script>
+
+
+</body>
+
+</html>
