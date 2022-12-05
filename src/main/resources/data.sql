@@ -1,4 +1,4 @@
-insert into classTeacher values(1,'liz@mail.com','Liz','Trass','pass', 0499423397);
+insert into classTeacher values(1,'lizztrass@gmail.com','Liz','Trass','Passpass_12', 0499423397);
 
 insert into student values(1,'Jens','Kwak','jens@mail.com','password',13,'Boy','2AC',1);
 insert into student values(2,'Valerie','Smith','smith@net.com','123',13,'Girl','2AC',1);

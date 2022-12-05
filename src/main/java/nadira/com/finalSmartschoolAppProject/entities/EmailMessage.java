@@ -16,7 +16,7 @@ public class EmailMessage {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private String recipient;
     private String subject;
-    private String message;
+    private String content;
     private String attachment;
     private LocalDateTime receivedAt;
     private LocalDateTime sentAt;
@@ -33,7 +33,7 @@ public class EmailMessage {
         return "EmailMessage{" +
                 "recipient='" + recipient + '\'' +
                 ", subject='" + subject + '\'' +
-                ", message='" + message + '\'' +
+                ", message='" + content + '\'' +
                 ", attachment='" + attachment + '\'' +
                 ", receivedAt=" + receivedAt +
                 ", sentAt=" + sentAt +

@@ -3,6 +3,9 @@
 
 
     <head>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
+        <script src="https://use.fontawesome.com/b077a438c4.js"></script>
+        <meta name="viewport" content="width=device-width, user-scalable=no">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -14,6 +17,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>SMARTSCHOOL APP</title>
     <link th:href= "@{/css/home.css}" rel="stylesheet" type="text/css">
+        <link th:href= "@{/css/home1.css}" rel="stylesheet" type="text/css">
 
 
 <div style="background-image:url('images/img2.jpg');
@@ -25,8 +29,17 @@
 
 <div align="center">
 
-    <h4><a th:href="@{/login/getLogin}">Login</a></h4>
-    <h4><a th:href="@{/register}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></h4>
+ <!--   <a class="nav-link" th:href="@{/contact}">Send Email</a>!-->
+
+    <a class="icon-link envelope brand" th:href="@{/contact}"><i class="fa fa-envelope"></i></a>
+
+  <ul>
+        <li><a th:href="@{/login/getLogin}" class="round green">Login<span class="round">Already have an account.</span></a></li>
+
+        <li><a th:href="@{/register}" class="round red">Sign Up<span class="round">No account? </span></a></li>
+    </ul>
+
+
 
 
     <!--  <h4><a th:href="@{/admin/login}">ClassTeacher</a></h4>
@@ -114,5 +127,6 @@ background-image: linear-gradient(to bottom, #fcfbf6, #fcfbf6, #fdfbf7, #dec381,
 
 </style>
 <script type="text/javascript" th:src="@{/js/home.js}"></script>
+<script type="text/javascript" th:src="@{/js/home1.js}"></script>
 </body>
 </html>
