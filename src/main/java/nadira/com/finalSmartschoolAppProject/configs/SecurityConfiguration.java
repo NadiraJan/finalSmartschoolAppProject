@@ -2,6 +2,7 @@ package nadira.com.finalSmartschoolAppProject.configs;
 
 import nadira.com.finalSmartschoolAppProject.services.interfaces.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -14,12 +15,12 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
 import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import javax.sql.DataSource;
 
-
-/*@Configuration
-@EnableWebSecurity
+@EnableWebMvc
+@ConfigurationProperties
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Autowired
     private StudentService userDetailsService;
@@ -28,10 +29,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     public PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
     }
+
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userDetailsService()).passwordEncoder(passwordEncoder());
     }
+
     @Autowired
     private DataSource dataSource;
 
@@ -67,4 +70,4 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
             return tokenRepositoryImpl;
 
     }
-}*/
+}

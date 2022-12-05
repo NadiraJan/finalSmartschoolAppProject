@@ -1,7 +1,7 @@
 package nadira.com.finalSmartschoolAppProject.controllers;
 
 import nadira.com.finalSmartschoolAppProject.entities.ClassTeacher;
-import nadira.com.finalSmartschoolAppProject.entities.LoginDto;
+import nadira.com.finalSmartschoolAppProject.entities.dto.LoginDto;
 import nadira.com.finalSmartschoolAppProject.entities.Student;
 import nadira.com.finalSmartschoolAppProject.services.interfaces.ClassTeacherService;
 import nadira.com.finalSmartschoolAppProject.services.interfaces.StudentService;
@@ -38,7 +38,7 @@ public class LoginController {
 
         if (loginDto.getRole().equals("student")) {
 
-            List<Student>students = studentService.getAllStudents();
+            List<Student> students = studentService.getAllStudents();
 
             for (Student student : students) {
                 if (student.getEmail().equals(loginDto.getEmail()) && student.getPassword().equals(loginDto.getPassword())) {
@@ -68,10 +68,9 @@ public class LoginController {
     }
 
     @GetMapping("/Authorization")
-    public String getAuthErrorPage(){
+    public String getAuthErrorPage() {
         return "authErrorPage";
     }
-
 
 
 }

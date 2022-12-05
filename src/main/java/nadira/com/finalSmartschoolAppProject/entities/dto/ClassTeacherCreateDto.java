@@ -1,4 +1,4 @@
-package nadira.com.finalSmartschoolAppProject.entities;
+package nadira.com.finalSmartschoolAppProject.entities.dto;
 
 import lombok.Data;
 

@@ -10,7 +10,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import java.nio.charset.Charset;
 import java.util.List;
 
-/*@Configuration
+@Configuration
 public class WebConfig implements WebMvcConfigurer {
 
     @Override
@@ -36,4 +36,4 @@ public class WebConfig implements WebMvcConfigurer {
         configurer.favorPathExtension(false);
 
     }
-}*/
+}
