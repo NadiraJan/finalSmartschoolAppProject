@@ -1,10 +1,10 @@
 insert into classTeacher values(1,'lizztrass@gmail.com','Liz','Trass','Passpass_12', 0499423397);
 
-insert into student values(1,'Jens','Kwak','jens@mail.com','password',13,'Boy','2AC',1);
-insert into student values(2,'Valerie','Smith','smith@net.com','123',13,'Girl','2AC',1);
-insert into student values(3,'Elise','Buynder','elise@yahoo.com','pass',12,'Girl','2AC',1);
-insert into student values(4,'Jan','Lemberg','jan@mail.be','1234',13,'Boy','2AC',1);
-insert into student values(5,'Bob','Claus','bob@hotmail.com','password',13,'Boy','2AC',1);
+insert into student (id,firstName,lastName,email, password,age,gender,grade,classTeacher_id)values(1,'Jens','Kwak','jens@mail.com','password',13,'Boy','2AC',1);
+insert into student (id,firstName,lastName,email, password,age,gender,grade,classTeacher_id)values(2,'Valerie','Smith','smith@net.com','123',13,'Girl','2AC',1);
+insert into student (id,firstName,lastName,email, password,age,gender,grade,classTeacher_id)values(3,'Elise','Buynder','elise@yahoo.com','pass',12,'Girl','2AC',1);
+insert into student (id,firstName,lastName,email, password,age,gender,grade,classTeacher_id)values(4,'Jan','Lemberg','jan@mail.be','1234',13,'Boy','2AC',1);
+insert into student (id,firstName,lastName,email, password,age,gender,grade,classTeacher_id)values(5,'Bob','Claus','bob@hotmail.com','password',13,'Boy','2AC',1);
 
 
 

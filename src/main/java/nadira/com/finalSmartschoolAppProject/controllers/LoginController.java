@@ -41,9 +41,11 @@ public class LoginController {
             List<Student> students = studentService.getAllStudents();
 
             for (Student student : students) {
+                System.out.println(student.getEmail() + student.getPassword());
+                System.out.println(loginDto.getEmail()+loginDto.getPassword());
                 if (student.getEmail().equals(loginDto.getEmail()) && student.getPassword().equals(loginDto.getPassword())) {
                     session.setAttribute("student", student);
-                    return "redirect:/student_home";
+                    return "redirect:/students";
                 }
 
             }
