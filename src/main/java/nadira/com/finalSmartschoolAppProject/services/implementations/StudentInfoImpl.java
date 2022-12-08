@@ -21,19 +21,18 @@ public class StudentInfoImpl implements StudentInfoService {
     }
 
     @Override
-    public StudentInfo saveStudentInfo(StudentInfo studentInfo) {
-        return studentInfoRepository.save(studentInfo);
+    public StudentInfo saveStudentInfo(StudentInfo info) {
+        return studentInfoRepository.save(info);
     }
 
     @Override
     public StudentInfo getStudentInfoById(Long id) {
-        return studentInfoRepository.findByStudentId(id);
+        return studentInfoRepository.findById(id).get();
     }
 
-
     @Override
-    public StudentInfo updateStudentInfo(StudentInfo studentInfo) {
-        return studentInfoRepository.save(studentInfo);
+    public StudentInfo updateStudentInfo(StudentInfo info) {
+        return studentInfoRepository.save(info);
     }
 
     @Override
@@ -43,7 +42,8 @@ public class StudentInfoImpl implements StudentInfoService {
     }
 
     @Override
-    public StudentInfo getStudentInfoByStudentId(Long studentId) {
-        return studentInfoRepository.findByStudentId(studentId);
+    public List<StudentInfo> getStudentInfoByStudentId(Long student_id) {
+        return studentInfoRepository.findByStudentId(student_id);
     }
+
 }

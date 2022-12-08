@@ -12,8 +12,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import javax.servlet.http.HttpSession;
-
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.util.List;
 
 @Controller
 public class StudentController {
@@ -22,69 +23,37 @@ public class StudentController {
     @Autowired
     private StudentInfoService studentInfoService;
 
- /*   @GetMapping("/getStudentPage")
-    public String showStudent(Model model, HttpSession session){
-        Student studentSession = (Student) session.getAttribute("student");
+
+   @GetMapping("/getStudentPage")
+    public String getStudent(Model model, HttpServletRequest request, HttpServletResponse response){
+        Student studentSession = (Student) request.getSession().getAttribute("student");
         if(studentSession !=null){
-            String name= studentSession.getFirstName() +"/" + studentSession.getFirstName();
+            String name= studentSession.getEmail() + "/" + studentSession.getPassword();
             Student student = studentService.getStudentById(studentSession.getId());
             model.addAttribute("student", student);
-            return "studentShow";
+            return "student_home";
         } else {
             return "redirect:/login";
         }
     }
 
-    @GetMapping("/getStudentInfoPage/{studentId}")
-    public String showStudentInfo(@PathVariable("studentId") Long studentId, Model model, HttpSession session){
-        Student studentSession = (Student) session.getAttribute("student");
-        if(studentSession !=null) {
-            if (studentId == studentSession.getId()) {
+    @GetMapping("/getStudentInfoPage/{student_id}")
+    public String getStudentInfo(@PathVariable("student_id") Long student_id, Model model,HttpServletRequest request) {
+        Student studentSession = (Student) request.getSession().getAttribute("student");
+        if (studentSession != null) {
+            if (student_id == studentSession.getId()) {
                 Student student = studentService.getStudentById(studentSession.getId());
-                StudentInfo studentInfo = studentInfoService.getStudentInfoById(studentSession.getId());
+                List<StudentInfo> studentInfo = studentInfoService.getStudentInfoByStudentId(studentSession.getId());
                 model.addAttribute("studentInfo", studentInfo);
-                return "studentInfoShow";
+                return "studentInfo_home";
             }
             return "redirect:/student/getStudentPage";
         } else {
             return "redirect:/login";
         }
-        }
 
-    @GetMapping("/student/home")
-    public String viewStudentHomePage() {
-        return "student/student_home";
     }
 
-
-
-    @PostMapping("/login")
-    public String login(@ModelAttribute("student") Student studentReceived, HttpSession httpSession) {
-        System.out.println(studentReceived.getEmail());
-        System.out.println(studentReceived.getPassword());
-
-        Student foundStudent = studentService.getByEmailAndPassword(studentReceived.getEmail(),studentReceived.getPassword());
-
-        if(foundStudent==null){
-            System.out.println("no valid student");
-            return "redirect:/student/login";
-        }
-        else {
-
-            httpSession.setAttribute("loggedInUser", studentReceived);
-            return "redirect:/student/home";
-        }
-
-    }*/
-
-
-
-    public StudentController(StudentService studentService) {
-        this.studentService = studentService;
-    }
-
-
-    //handler method to handle list of students and return mode and view
     @GetMapping("/students")
     public String listStudents(Model model) {
         model.addAttribute("students", studentService.getAllStudents());
@@ -121,7 +90,6 @@ public class StudentController {
                                 Model model) {
 
         Student existingStudent = studentService.getStudentById(id);
-        //  existingStudent.setId(id);
         existingStudent.setFirstName(student.getFirstName());
         existingStudent.setLastName(student.getLastName());
         existingStudent.setEmail(student.getEmail());
@@ -145,8 +113,10 @@ public class StudentController {
 
 
 
+}
 
-            }
+
+
 
 
 

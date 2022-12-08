@@ -1,5 +1,6 @@
 package nadira.com.finalSmartschoolAppProject.services.implementations;
 
+import nadira.com.finalSmartschoolAppProject.entities.ClassTeacher;
 import nadira.com.finalSmartschoolAppProject.entities.Student;
 import nadira.com.finalSmartschoolAppProject.repositories.StudentRepository;
 import nadira.com.finalSmartschoolAppProject.services.interfaces.StudentService;
@@ -45,4 +46,6 @@ public class StudentServiceImpl implements StudentService {
     public Student getByEmailAndPassword(String email, String password) {
         return studentRepository.findByEmailAndPassword(email, password);
     }
+
+
 }

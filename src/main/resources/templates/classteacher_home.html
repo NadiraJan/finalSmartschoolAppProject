@@ -13,7 +13,8 @@
     <link th:href="@{/css/adminhome2.css}" rel="stylesheet" type="text/css">
 </head>
 <body>
-
+<a class="nav-link" th:href="@{/classTeacher}">Student Management </a>
+<a th:href="@{/classTeacher/{classTeacher_id}(classTeacher_id=${classTeacher.id})}" class="btn waves-effect waves-dark btn-primary btn-outline-primary">ClassTeacher's page</a>
 
 <div class="container">
     <div>

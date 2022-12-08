@@ -22,6 +22,17 @@
     <div class="mb-4 text-center">
         <h1> School management</h1>
     </div>
+
+    <!-- error message -->
+    <div th:if="${param.error}">
+        <div class="alert alert-danger">Invalid username or password</div>
+    </div>
+    <!-- logout message -->
+    <div th:if="${param.logout}">
+        <div class="alert alert-info">You have been logged out.</div>
+    </div>
+
+
     <div class="form-group">
         <label for="email">email</label>
         <input type="text" class="form-control" id="email" name="email"
@@ -50,6 +61,6 @@
 </form>
 </div>
     </div>
-
+</div>
 </body>
 </html>

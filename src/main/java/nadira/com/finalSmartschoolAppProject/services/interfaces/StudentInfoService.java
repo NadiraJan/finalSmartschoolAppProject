@@ -7,11 +7,11 @@ import java.util.List;
 public interface StudentInfoService {
 
   List<StudentInfo> getAllStudentInfo();
-  StudentInfo saveStudentInfo(StudentInfo studentInfo);
+  StudentInfo saveStudentInfo(StudentInfo   info);
   StudentInfo getStudentInfoById(Long id);
-  StudentInfo updateStudentInfo(StudentInfo studentInfo);
+  StudentInfo updateStudentInfo(StudentInfo  info  );
   void deleteStudentInfoById(Long id);
-  StudentInfo getStudentInfoByStudentId(Long studentId);
+  List<StudentInfo> getStudentInfoByStudentId(Long student_id);
 
 
 

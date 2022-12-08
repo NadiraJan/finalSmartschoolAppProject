@@ -31,4 +31,5 @@ public class Student extends User {
             cascade = CascadeType.ALL)
     private List<Results> results;
 
+
 }

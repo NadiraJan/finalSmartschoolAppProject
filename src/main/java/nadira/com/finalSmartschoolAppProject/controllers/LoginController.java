@@ -25,7 +25,6 @@ public class LoginController {
     @Autowired
     private ClassTeacherService classTeacherService;
 
-
     @GetMapping("/getLogin")
     public String login(Model model, @ModelAttribute("login") LoginDto loginDto) {
         model.addAttribute("login", loginDto);
@@ -41,20 +40,21 @@ public class LoginController {
             List<Student> students = studentService.getAllStudents();
 
             for (Student student : students) {
-                System.out.println(student.getEmail() + student.getPassword());
-                System.out.println(loginDto.getEmail()+loginDto.getPassword());
+           //     System.out.println(student.getEmail() + student.getPassword());
+            //    System.out.println(loginDto.getEmail() + loginDto.getPassword());
                 if (student.getEmail().equals(loginDto.getEmail()) && student.getPassword().equals(loginDto.getPassword())) {
                     session.setAttribute("student", student);
-                    return "redirect:/students";
+                    return "redirect:/getStudentPage";
                 }
-
             }
         } else if (loginDto.getRole().equals("classTeacher")) {
             List<ClassTeacher> classTeachers = classTeacherService.getAllClassTeacher();
             for (ClassTeacher classTeacher : classTeachers) {
+                System.out.println(classTeacher.getEmail() + classTeacher.getPassword());
+                System.out.println(loginDto.getEmail() + loginDto.getPassword());
                 if (classTeacher.getEmail().equals(loginDto.getEmail()) && classTeacher.getPassword().equals(loginDto.getPassword())) {
                     session.setAttribute("classTeacher", classTeacher);
-                    return "redirect:/classteacher_home";
+                    return "redirect:/getClassTeacherPage";
 
                 }
             }
@@ -69,10 +69,10 @@ public class LoginController {
         return "redirect:/login/getLogin";
     }
 
-    @GetMapping("/Authorization")
+    /*@GetMapping("/Authorization")
     public String getAuthErrorPage() {
         return "authErrorPage";
-    }
+    }*/
 
 
 }
