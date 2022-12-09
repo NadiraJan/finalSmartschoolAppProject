@@ -56,20 +56,20 @@
             <table class="table">
                 <thead>
                 <tr>
-                    <th>First Name</th>
-                    <th>Last Name</th>
                     <th>Email</th>
-                    <th>PhoneNumber</th>
+                    <th>GSM</th>
+                    <th>My Working Days</th>
+                    <th>Parents Contact</th>
 
                 </tr>
                 </thead>
 
                 <tbody>
                 <tr th:object="${classTeacher}">
-                    <td th:text="*{firstName}"></td>
-                    <td th:text="*{lastName}"></td>
                     <td th:text="*{email}"></td>
                     <td th:text="*{phoneNumber}"></td>
+                    <td th:text="*{myWorkingDays}"></td>
+                    <td th:text="*{parentsContact}"></td>
 
 
                 </tr>

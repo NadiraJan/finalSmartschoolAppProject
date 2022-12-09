@@ -17,6 +17,8 @@ public class ClassTeacher extends User {
      private String email;
      private String password;*/
     private int phoneNumber;
+    private String myWorkingDays;
+    private String parentsContact;
 
 
     @OneToMany(mappedBy = "classTeacher",

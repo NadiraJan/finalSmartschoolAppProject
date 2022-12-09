@@ -1,4 +1,4 @@
-insert into classTeacher(id,firstName, lastName,email, password,phoneNumber)values(1,'Liz','Trass','lizztrass@gmail.com','Passpass_12', 0499423397);
+insert into classTeacher(id,firstName, lastName,email, password,phoneNumber,myWorkingDays,parentsContact)values(1,'Liz','Trass','lizztrass@gmail.com','Passpass_12', 0499423397,'Mon-Tue-Thu-Fr','Every 3 months');
 
 
 insert into student (id,firstName,lastName,email, password,age,gender,grade,classTeacher_id)values(1,'Jens','Kwak','jens@mail.com','password',13,'Boy','2AC',1);
