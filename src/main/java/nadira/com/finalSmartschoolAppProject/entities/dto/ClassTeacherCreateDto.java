@@ -2,7 +2,7 @@ package nadira.com.finalSmartschoolAppProject.entities.dto;
 
 import lombok.Data;
 
-@Data
+/*@Data
 public class ClassTeacherCreateDto {
     private String firstName;
     private String lastName;
@@ -11,4 +11,4 @@ public class ClassTeacherCreateDto {
     private int phoneNumber;
     private Long resultsId;
     private Long classTeacherId;
-}
+}*/

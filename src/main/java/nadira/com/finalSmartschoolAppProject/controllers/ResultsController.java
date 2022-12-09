@@ -24,6 +24,8 @@ public class ResultsController {
     private StudentService studentService;
 
 
+
+
     @GetMapping("/results")
     public String listResults(Model model) {
 
@@ -39,12 +41,12 @@ public class ResultsController {
     }
 
 
-
-  @PostMapping("/results")
+ @PostMapping("/results")
     public String saveResults(@ModelAttribute("results")Results results){
         resultsService.saveResults(results);
         return "redirect:/results";
     }
+
     @GetMapping("/results/edit/{id}")
     public String editResultsForm(@PathVariable Long id, Model model) {
         model.addAttribute("results", resultsService.getResultsById(id));
@@ -72,25 +74,23 @@ public class ResultsController {
     }
 
 
-  /*  @GetMapping("/results")
+ @GetMapping("/getResults")
     public String listResults(Model model, HttpSession httpSession) {
-      //  Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        Object user = httpSession.getAttribute("loggedInUser");
+  //  Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Object user = httpSession.getAttribute("student");
         if(user instanceof Student){
             model.addAttribute("results" ,
                     resultsService.getResultsByStudent(((Student)user)));
         } else if(user instanceof ClassTeacher){
 
             model.addAttribute("results", resultsService.getAllResults());
-
-
         }
         return "results";
 
 
-    }*/
+    }
 
-  /*  @GetMapping("/myresults/{studentId}")
+ /*  @GetMapping("/results/{studentId}")
     public String seeAllResultsByStudentId(Model model, @PathVariable Long studentId) {
         Student student = studentService.getStudentById(studentId);
         Results results = resultsService.getResultsByStudent(student);

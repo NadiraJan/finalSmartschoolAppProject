@@ -40,16 +40,16 @@ public class LoginController {
             List<Student> students = studentService.getAllStudents();
 
             for (Student student : students) {
-           //     System.out.println(student.getEmail() + student.getPassword());
-            //    System.out.println(loginDto.getEmail() + loginDto.getPassword());
+                //     System.out.println(student.getEmail() + student.getPassword());
+                //    System.out.println(loginDto.getEmail() + loginDto.getPassword());
                 if (student.getEmail().equals(loginDto.getEmail()) && student.getPassword().equals(loginDto.getPassword())) {
                     session.setAttribute("student", student);
                     return "redirect:/getStudentPage";
                 }
             }
         } else if (loginDto.getRole().equals("classTeacher")) {
-            List<ClassTeacher> classTeachers = classTeacherService.getAllClassTeacher();
-            for (ClassTeacher classTeacher : classTeachers) {
+            List<ClassTeacher> classTeacherList = classTeacherService.getAllClassTeacher();
+            for (ClassTeacher classTeacher : classTeacherList) {
                 System.out.println(classTeacher.getEmail() + classTeacher.getPassword());
                 System.out.println(loginDto.getEmail() + loginDto.getPassword());
                 if (classTeacher.getEmail().equals(loginDto.getEmail()) && classTeacher.getPassword().equals(loginDto.getPassword())) {
@@ -64,10 +64,16 @@ public class LoginController {
     }
 
     @GetMapping("/logout")
+    public String logout() {
+        return "login";
+    }
+
+ /*   @GetMapping("/logout")
     public String logout(HttpSession session) {
+        //    session.setAttribute("loginDto",null);
         session.invalidate();
         return "redirect:/login/getLogin";
-    }
+    }*/
 
     /*@GetMapping("/Authorization")
     public String getAuthErrorPage() {

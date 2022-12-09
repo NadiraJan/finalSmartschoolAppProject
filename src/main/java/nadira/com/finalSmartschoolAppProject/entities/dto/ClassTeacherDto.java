@@ -6,8 +6,8 @@ import nadira.com.finalSmartschoolAppProject.entities.Results;
 
 import java.util.List;
 
-@Data
+/*@Data
 public class ClassTeacherDto {
     public ClassTeacher classTeacher;
     public List<Results> results;
-}
+}*/

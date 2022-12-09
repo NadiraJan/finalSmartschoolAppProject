@@ -1,50 +1,76 @@
-    <!DOCTYPE html>
-    <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-    <head>
-        <meta charset="UTF-8">
-        <title>Student Management System</title>
-
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-              integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-              crossorigin="anonymous">
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Management System</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+    <link th:href= "@{/css/results.css}" rel="stylesheet" type="text/css">
 </head>
 <body>
-<ul class="navbar-nav">
-    <li class="nav-item">
-        <a class="nav-link" th:href="@{/classTeacher}">Student Management </a>
-    </li>
 
-</ul>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <!-- Brand -->
+    <a class="navbar-brand" href="#">ClassTeacher</a>
+
+    <!-- Links -->
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" th:href="@{/classTeacher}">ClassTeacher</a>
+        </li>
+
+    </ul>
+</nav>
+<br>
 
 <div class="container">
     <div class="row">
-        <h1>List Students</h1>
+        <h1>ClassTeacher</h1>
     </div>
-    <table class="table table-striped table-bordered">
-        <thead class="table-dark">
-        <tr>
-            <th>ClassTeacher First Name</th>
-            <th>ClassTeacher Last Name</th>
-            <th>ClassTeacher Email</th>
-            <th>ClassTeacher Password</th>
-            <th>ClassTeacher phone</th>
-
-            <th>Edit</th>
-            <th>Delete</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="classTeacher: ${classTeacher}">
-            <th th:text="${classTeacher.firstName}"></th>
-            <th th:text="${classTeacher.lastName}"></th>
-            <th th:text="${classTeacher.email}"></th>
-            <th th:text="${classTeacher.password}"></th>
-            <th th:text="${classTeacher.phoneNumber}"></th>
+    <div class="row">
+        <div class="col-lg-3">
+            <a class="nav-link" th:href="@{/classTeacher}"></a>
 
 
-        </tr>
-        </tbody>
-    </table>
+        </div>
+        <table class="table table-striped table-bordered">
+            <thead class="table-dark">
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Password</th>
+                <th>PhoneNumber
+
+
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="classTeacher:${classTeacher}">
+                <th th:text="${classTeacher.firstName}"></th>
+                <th th:text="${classTeacher.lastName}"></th>
+                <th th:text="${classTeacher.email}"></th>
+                <th th:text="${classTeacher.password}"></th>
+                <th th:text="${classTeacher.phoneNumber}"></th>
+
+
+            </tr>
+
+            </tbody>
+        </table>
+        <div class="row">
+            <div class="col-lg-3">
+                <a th:href="@{/classTeacher/new}"
+                   type="button" id="add-order"  class="btn gradient white">ADD NEW RESULT</button></a>
+
+            </div>
+        </div>
+
+    </div>
 </div>
+
+
 </body>
 </html>

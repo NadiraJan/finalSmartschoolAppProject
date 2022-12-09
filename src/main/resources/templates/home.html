@@ -29,21 +29,19 @@
 
 <div align="center">
 
- <!--   <a class="nav-link" th:href="@{/contact}">Send Email</a>!-->
+    <!--   <a class="icon-link envelope brand" th:href="@{/contact}"><i class="fa fa-envelope"></i></a>!-->
 
-    <a class="icon-link envelope brand" th:href="@{/contact}"><i class="fa fa-envelope"></i></a>
+    <ul>
+          <li><a th:href="@{/login/getLogin}" class="round green">Login<span class="round">Already have an account.</span></a></li>
 
-  <ul>
-        <li><a th:href="@{/login/getLogin}" class="round green">Login<span class="round">Already have an account.</span></a></li>
-
-        <li><a th:href="@{/register}" class="round red">Sign Up<span class="round">No account? </span></a></li>
-    </ul>
+          <li><a th:href="@{/register}" class="round red">Sign Up<span class="round">No account? </span></a></li>
+      </ul>
 
 
 
 
-    <!--  <h4><a th:href="@{/admin/login}">ClassTeacher</a></h4>
-      <h4><a th:href="@{/student/login}">Student</a></h4>!-->
+      <!--  <h4><a th:href="@{/admin/login}">ClassTeacher</a></h4>
+        <h4><a th:href="@{/student/login}">Student</a></h4>!-->
 
 
 </div>

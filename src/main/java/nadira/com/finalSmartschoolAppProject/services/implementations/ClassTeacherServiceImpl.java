@@ -31,7 +31,7 @@ public class ClassTeacherServiceImpl implements ClassTeacherService {
     }
 
     @Override
-    public ClassTeacher updateStudent(ClassTeacher classTeacher) {
+    public ClassTeacher updateClassTeacher(ClassTeacher classTeacher) {
         return classTeacherRepository.save(classTeacher);
     }
 

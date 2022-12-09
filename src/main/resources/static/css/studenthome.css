@@ -3,7 +3,9 @@
 	padding: 8px 15px 3px;
 	border: 1px solid rgba(0,0,0,.125);
 	border-radius: .25rem;
-	text-color:#076982
+	text-color:#1e4228;
+	&:hover {
+    			background-color: rgba(255,255,255,0.3);
 }
 
 .nav-link #navBars input {
@@ -20,3 +22,6 @@
 	background-color: rgba(125, 125, 126, 1);
 	border-radius: .25rem;
 }
+
+
+

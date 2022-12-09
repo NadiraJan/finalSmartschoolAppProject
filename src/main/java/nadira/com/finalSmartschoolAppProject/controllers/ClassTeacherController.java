@@ -22,7 +22,7 @@ import java.util.List;
 @RequestMapping("/classTeacher")
 public class ClassTeacherController {
 
-    private static Long studentId;
+
     @Autowired
     private StudentInfoService studentInfoService;
     @Autowired
@@ -32,10 +32,32 @@ public class ClassTeacherController {
     @Autowired
     private ResultsService resultsService;
 
+
+    @GetMapping("/getClassTeacherPage")
+    public String getClassTeacher(Model model, HttpServletRequest request, HttpServletResponse response) {
+        ClassTeacher classTeacherSession = (ClassTeacher) request.getSession().getAttribute("classTeacher");
+        if (classTeacherSession != null) {
+            String name = classTeacherSession.getEmail() + "/" + classTeacherSession.getPassword();
+            ClassTeacher classTeacher = classTeacherService.getClassTeacherById(classTeacherSession.getId());
+            model.addAttribute("classTeacher", classTeacher);
+            return "classteacher_home";
+        } else {
+            return "redirect:/login";
+        }
+    }
+
     @GetMapping("/classTeacher")
     public String listClassTeacher(Model model) {
         model.addAttribute("classTeacher", classTeacherService.getAllClassTeacher());
         return "classTeacher";
+
+    }
+
+    @GetMapping("/classTeacher/{id}")
+    public String ClassTeacherById(Model model, @PathVariable Long id) {
+        ClassTeacher classTeacher = classTeacherService.getClassTeacherById(id);
+        model.addAttribute("classTeacher", id);
+        return "classTeacher" + id;
 
     }
 
@@ -44,19 +66,6 @@ public class ClassTeacherController {
         classTeacherService.saveClassTeacher(classTeacher);
         return "redirect:/classTeacher";
 
-    }
-
-    @GetMapping("/getClassTeacherPage")
-    public String getClassTeacher(Model model, HttpServletRequest request, HttpServletResponse response){
-        ClassTeacher classTeacherSession = (ClassTeacher) request.getSession().getAttribute("classTeacher");
-        if(classTeacherSession !=null){
-            String name= classTeacherSession.getEmail() + "/" + classTeacherSession.getPassword();
-            ClassTeacher classTeacher = classTeacherService.getClassTeacherById(classTeacherSession.getId());
-            model.addAttribute("classTeacher", classTeacher);
-            return "classteacher_home";
-        } else {
-            return "redirect:/login";
-        }
     }
 
 

@@ -13,7 +13,7 @@ public interface ClassTeacherService {
 
     ClassTeacher saveClassTeacher(ClassTeacher classTeacher);
 
-    ClassTeacher updateStudent(ClassTeacher classTeacher);
+    ClassTeacher updateClassTeacher(ClassTeacher classTeacher);
 
     ClassTeacher getClassTeacherByEmailAndPassword(String email, String password);
 

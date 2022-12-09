@@ -13,8 +13,8 @@
     <link th:href="@{/css/adminhome2.css}" rel="stylesheet" type="text/css">
 </head>
 <body>
-<a class="nav-link" th:href="@{/classTeacher}">Student Management </a>
-<a th:href="@{/classTeacher/{classTeacher_id}(classTeacher_id=${classTeacher.id})}" class="btn waves-effect waves-dark btn-primary btn-outline-primary">ClassTeacher's page</a>
+
+
 
 <div class="container">
     <div>
@@ -48,11 +48,43 @@
     <div align="right">
         <h2> ClassTeacher's Page</h2>
         <p>
-            logged in as:<b>[[${#request.userPrincipal.principal.username}]]</b>
+   logged in as:<b>[[${#request.userPrincipal.principal.username}]]</b>
 
         </p>
 
-        <form th:action="@{/admin/logout}" method="post">
+        <h3>CLASSTEACHER'S PAGE</h3>
+        <div class="table-responsive-sm">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>PhoneNumber</th>
+
+                </tr>
+                </thead>
+
+                <tbody>
+                <tr th:object="${classTeacher}">
+                    <td th:text="*{firstName}"></td>
+                    <td th:text="*{lastName}"></td>
+                    <td th:text="*{email}"></td>
+                    <td th:text="*{phoneNumber}"></td>
+
+
+                </tr>
+                </tbody>
+            </table>
+            <br>
+
+
+            <a th:href="@{/classTeacher/{classTeacher_id}(classTeacher_id=${classTeacher.id})}"> </a>
+
+
+
+
+        <form th:action="@{/classTeacher/logout}" method="post">
             <input type="submit" value="logout" />
         </form>
     </div>
@@ -94,6 +126,7 @@
 
         </header>
     </main>
+</div>
 </div>
 </body>
 <script type="text/javascript">
