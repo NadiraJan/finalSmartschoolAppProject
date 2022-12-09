@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface ClassTeacherService {
 
-   List<ClassTeacher> getAllClassTeacher();
+    List<ClassTeacher> getAllClassTeacher();
 
     ClassTeacher getClassTeacherById(Long id);
 

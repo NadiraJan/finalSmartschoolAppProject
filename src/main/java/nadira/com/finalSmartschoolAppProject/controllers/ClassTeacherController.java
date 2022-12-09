@@ -19,7 +19,7 @@ import java.util.List;
 
 
 @Controller
-@RequestMapping("/classTeacher")
+
 public class ClassTeacherController {
 
 
@@ -53,7 +53,7 @@ public class ClassTeacherController {
 
     }
 
-    @GetMapping("/classTeacher/{id}")
+ /*   @GetMapping("/classTeacher/{id}")
     public String ClassTeacherById(Model model, @PathVariable Long id) {
         ClassTeacher classTeacher = classTeacherService.getClassTeacherById(id);
         model.addAttribute("classTeacher", id);
@@ -66,7 +66,7 @@ public class ClassTeacherController {
         classTeacherService.saveClassTeacher(classTeacher);
         return "redirect:/classTeacher";
 
-    }
+    }*/
 
 
 }
