@@ -8,23 +8,29 @@ insert into student (id,firstName,lastName,email, password,age,gender,grade,clas
 insert into student (id,firstName,lastName,email, password,age,gender,grade,classTeacher_id)values(5,'Bob','Claus','bob@hotmail.com','password',13,'Boy','2AC',1);
 
 
-insert into results values (1,60.0,'fair','HISTORY',1);
-insert into results values (2,75.0,'good','HISTORY',2);
-insert into results values (3,90.0,'very good','HISTORY',3);
+insert into results (id,maxPoint,subjects,remarks,student_id) values (1,60.0,'HISTORY','fair',1);
+insert into results (id,maxPoint,subjects,remarks,student_id) values (2,75.0,'HISTORY','good',2);
+insert into results (id,maxPoint,subjects,remarks,student_id) values (3,90.0,'HISTORY','very good',3);
+insert into results (id,maxPoint,subjects,remarks,student_id)values (4,98.0,'HISTORY','awesome',4);
+insert into results (id,maxPoint,subjects,remarks,student_id)values (5,60.00,'HISTORY','fair',5);
 
-insert into results values (4,62.0,'fair','ECONOMY',1);
-insert into results values (5,32.0,'retest','ECONOMY',2);
-insert into results values (6,55.0,'retest','ECONOMY',3);
+insert into results (id,maxPoint,subjects,remarks,student_id)values (6,62.0,'INFORMATICS','fair',1);
+insert into results (id,maxPoint,subjects,remarks,student_id)values (7,32.0,'INFORMATICS','retest',2);
+insert into results (id,maxPoint,subjects,remarks,student_id) values (8,55.0,'INFORMATICS','retest',3);
+insert into results (id,maxPoint,subjects,remarks,student_id)values (9,98.0,'INFORMATICS','awesome',4);
+insert into results (id,maxPoint,subjects,remarks,student_id)values (10,60.00,'INFORMATICS','fair',5);
 
-insert into results values (7,98.0,'awesome','GEOGRAPHY',1);
-insert into results values (8,79.0,'very good','GEOGRAPHY',2);
-insert into results values (9,58.0,'fair','GEOGRAPHY',3);
 
-insert into results values (10,100.0,'awesome','ECONOMY',1);
-insert into results values (11,80.0,'very good','ECONOMY',2);
-insert into results values (12,77.0,'very good','ECONOMY',3);
+insert into results (id,maxPoint,subjects,remarks,student_id)values (11,98.0,'GEOGRAPHY','awesome',1);
+insert into results (id,maxPoint,subjects,remarks,student_id)values (12,79.0,'GEOGRAPHY','very good',2);
+insert into results (id,maxPoint,subjects,remarks,student_id) values (13,58.0,'GEOGRAPHY','fair',3);
+insert into results (id,maxPoint,subjects,remarks,student_id)values (14,98.0,'GEOGRAPHY','awesome',4);
+insert into results (id,maxPoint,subjects,remarks,student_id)values (15,60.00,'GEOGRAPHY','fair',5);
 
-insert into results values (13,98.0,'awesome','ECONOMY',4);
-insert into results values (14,60,'fair','ECONOMY',5);
+insert into results (id,maxPoint,subjects,remarks,student_id)values (16,98.0,'ECONOMY','awesome',1);
+insert into results (id,maxPoint,subjects,remarks,student_id)values (17,60.00,'ECONOMY','fair',2);
+insert into results (id,maxPoint,subjects,remarks,student_id)values (18,98.0,'ECONOMY','awesome',3);
+insert into results (id,maxPoint,subjects,remarks,student_id)values (19,60.00,'ECONOMY','fair',4);
+insert into results (id,maxPoint,subjects,remarks,student_id)values (20,98.0,'ECONOMY','awesome',5);
 
 

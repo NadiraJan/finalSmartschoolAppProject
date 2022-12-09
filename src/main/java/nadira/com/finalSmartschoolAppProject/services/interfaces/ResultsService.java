@@ -8,10 +8,14 @@ import java.util.List;
 
 public interface ResultsService {
 
-List<Results> getAllResults();
+    List<Results> getAllResults();
+
     Results saveResults(Results results);
+
     Results updateResults(Results results);
-    void  deleteResultsById(Long id);
+
+    void deleteResultsById(Long id);
+
     Results getResultsById(Long id);
 
     Results getResultsByStudent(Student student);

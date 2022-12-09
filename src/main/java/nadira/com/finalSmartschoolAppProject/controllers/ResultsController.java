@@ -3,6 +3,7 @@ import nadira.com.finalSmartschoolAppProject.entities.ClassTeacher;
 import nadira.com.finalSmartschoolAppProject.entities.Results;
 import nadira.com.finalSmartschoolAppProject.entities.Student;
 import nadira.com.finalSmartschoolAppProject.entities.Subjects;
+import nadira.com.finalSmartschoolAppProject.entities.dto.LoginDto;
 import nadira.com.finalSmartschoolAppProject.services.interfaces.ResultsService;
 import nadira.com.finalSmartschoolAppProject.services.interfaces.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
@@ -76,7 +78,7 @@ public class ResultsController {
 
  @GetMapping("/getResults")
     public String listResults(Model model, HttpSession httpSession) {
-  //  Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+ //Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         Object user = httpSession.getAttribute("student");
         if(user instanceof Student){
             model.addAttribute("results" ,
@@ -90,13 +92,14 @@ public class ResultsController {
 
     }
 
- /*  @GetMapping("/results/{studentId}")
+
+/* @GetMapping("/results/{studentId}")
     public String seeAllResultsByStudentId(Model model, @PathVariable Long studentId) {
         Student student = studentService.getStudentById(studentId);
         Results results = resultsService.getResultsByStudent(student);
         model.addAttribute("results", results);
         model.addAttribute("results", new Results(0, Subjects.valueOf(""), "", student));
 
-        return "myresults";
+        return "results";
     }*/
 }
