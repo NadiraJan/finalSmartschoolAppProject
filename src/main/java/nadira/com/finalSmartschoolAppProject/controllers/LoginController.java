@@ -1,9 +1,11 @@
 package nadira.com.finalSmartschoolAppProject.controllers;
 
 import nadira.com.finalSmartschoolAppProject.entities.ClassTeacher;
+import nadira.com.finalSmartschoolAppProject.entities.Parent;
 import nadira.com.finalSmartschoolAppProject.entities.dto.LoginDto;
 import nadira.com.finalSmartschoolAppProject.entities.Student;
 import nadira.com.finalSmartschoolAppProject.services.interfaces.ClassTeacherService;
+import nadira.com.finalSmartschoolAppProject.services.interfaces.ParentService;
 import nadira.com.finalSmartschoolAppProject.services.interfaces.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,6 +26,8 @@ public class LoginController {
     private StudentService studentService;
     @Autowired
     private ClassTeacherService classTeacherService;
+    @Autowired
+    private ParentService parentService;
 
     @GetMapping("/getLogin")
     public String login(Model model, @ModelAttribute("login") LoginDto loginDto) {
@@ -58,22 +62,30 @@ public class LoginController {
 
                 }
             }
+
+        } else if (loginDto.getRole().equals("parent")) {
+        List<Parent> parents = parentService.getAllParents();
+        for (Parent parent : parents) {
+            if (parent.getEmail().equals(loginDto.getEmail()) && parent.getPassword().equals(loginDto.getPassword())) {
+                session.setAttribute("parent", parent);
+                return "redirect:/getParentPage";
+            }
         }
-
+    }
         return "redirect:/login/getLogin";
-    }
+}
 
-    @GetMapping("/logout")
-    public String logout() {
-        return "login";
-    }
 
- /*   @GetMapping("/logout")
+
+
+
+
+  @GetMapping("/logout")
     public String logout(HttpSession session) {
-        //    session.setAttribute("loginDto",null);
+        session.setAttribute("loginDto",null);
         session.invalidate();
         return "redirect:/login/getLogin";
-    }*/
+    }
 
     /*@GetMapping("/Authorization")
     public String getAuthErrorPage() {

@@ -14,9 +14,12 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Controller
 public class ResultsController {
@@ -80,6 +83,7 @@ public class ResultsController {
     public String listResults(Model model, HttpSession httpSession) {
  //Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         Object user = httpSession.getAttribute("student");
+
         if(user instanceof Student){
             model.addAttribute("results" ,
                     resultsService.getResultsByStudent(((Student)user)));
@@ -102,4 +106,8 @@ public class ResultsController {
 
         return "results";
     }*/
+
+
+
+
 }

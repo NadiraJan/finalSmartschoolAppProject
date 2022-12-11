@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 
@@ -46,6 +47,7 @@ public class ClassTeacherController {
         }
     }
 
+
     @GetMapping("/classTeacher")
     public String listClassTeacher(Model model) {
         model.addAttribute("classTeacher", classTeacherService.getAllClassTeacher());
@@ -67,6 +69,16 @@ public class ClassTeacherController {
         return "redirect:/classTeacher";
 
     }*/
+
+
+    @GetMapping("/logout")
+    public String logout(HttpSession session) {
+        session.setAttribute("loginDto",null);
+        session.invalidate();
+        return "redirect:/login/getLogin";
+    }
+
+
 
 
 }

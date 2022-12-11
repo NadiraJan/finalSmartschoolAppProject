@@ -1,0 +1,35 @@
+HTML CSSResult Skip Results Iframe
+@import url("https://fonts.googleapis.com/css?family=Roboto+Mono:400,700");
+
+.wrapper {
+  width: 30%;
+  margin: 0 auto;
+}
+
+.logo {
+  width: 50%;
+}
+
+.sign-out-wrapper {
+  margin-right: 1em;
+}
+
+.sign-out {
+  color: black;
+  outline: none;
+  text-decoration: none;
+  transition: all 0.1s;
+}
+
+.sign-out:focus,
+.sign-out:hover,
+.sign-out:active {
+  color: black;
+  background-color: grey;
+  text-decoration: none;
+}
+
+.sign-out > span {
+  margin: 0.1em;
+}
+Resources

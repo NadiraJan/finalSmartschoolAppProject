@@ -1,0 +1,66 @@
+
+/* global styles */
+body {
+background-color: grey;}
+
+.page {
+    background-color: grey;
+}
+
+.list {
+  width: 300px;
+  height: 100%;
+  padding: 15px 0 0;
+  margin: 0;
+  position: fixed;
+  overflow-y: auto;
+  list-style-type: none;
+  background-color: #e73b74;
+}
+
+.list__link {
+  height: 30px;
+  padding: 9px 14px;
+  font-family: Verdana, Helvetica, sans-serif;
+  font-size: 1.2em;
+  display: block;
+  text-decoration: none;
+  color: white;
+  border-left: 5px solid transparent;
+}
+
+.link_padding {
+    margin-top: 150px;
+}
+
+.list__link:hover {
+  background-color: #f7f1f3;
+  color: #29171d;
+  border-left: 5px solid #29171d;
+}
+
+.list__icon {
+    padding-left: 10px;
+}
+
+.empty-div {
+    height: 1500px;
+}
+
+
+/* dropdown styles */
+
+.list__dropdown-content {
+    width: 100%;
+    display: none;
+    position: absolute;        /* delete for changing visability of Grape */
+    background-color: #f8739f;
+}
+
+.list__link_drop {
+    padding-left: 30px;
+}
+
+.dropbtn:hover .list__dropdown-content {
+    display: block;
+}

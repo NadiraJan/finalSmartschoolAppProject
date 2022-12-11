@@ -5,5 +5,6 @@ import nadira.com.finalSmartschoolAppProject.entities.EmailMessage;
 
 public interface EmailService {
 
-    String sendEmail(EmailMessage emailMessage);
+    void sendEmail(EmailMessage emailMessage);
+
 }

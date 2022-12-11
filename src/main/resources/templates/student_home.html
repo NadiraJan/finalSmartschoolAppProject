@@ -34,13 +34,7 @@
         School Management
     </a>
     <!-- https://stackoverflow.com/questions/26317679 -->
-    <a class="nav-link" href="#">
-        <div id="navBars">
 
-            <span></span>
-            <span></span>
-        </div>
-    </a>
 
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
@@ -64,6 +58,7 @@
     <table class="table">
     <thead>
     <tr>
+        <th>My ID</th>
         <th>First Name</th>
         <th>Last Name</th>
         <th>Age</th>
@@ -74,6 +69,7 @@
 
     <tbody>
     <tr th:object="${student}">
+        <td th:text="*{id}"></td>
         <td th:text="*{firstName}"></td>
         <td th:text="*{lastName}"></td>
         <td th:text="*{age}"></td>
@@ -89,9 +85,7 @@
 <a th:href="@{/student/{student_id}(student_id=${student.id})}"
    class="btn waves-effect waves-dark btn-primary btn-outline-primary">Student Info</a>
 
-<form th:action="@{/student/logout}" method="post">
-    <input type="submit" value="Logout"/>
-</form>
+
 
 <div id="space"></div>
 <script type="text/javascript" th:src="@{/js/calender.js}"></script>

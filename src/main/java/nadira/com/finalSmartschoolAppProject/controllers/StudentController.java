@@ -1,7 +1,10 @@
 package nadira.com.finalSmartschoolAppProject.controllers;
 
+import nadira.com.finalSmartschoolAppProject.entities.ClassTeacher;
+import nadira.com.finalSmartschoolAppProject.entities.Results;
 import nadira.com.finalSmartschoolAppProject.entities.Student;
 import nadira.com.finalSmartschoolAppProject.entities.StudentInfo;
+import nadira.com.finalSmartschoolAppProject.services.interfaces.ResultsService;
 import nadira.com.finalSmartschoolAppProject.services.interfaces.StudentInfoService;
 import nadira.com.finalSmartschoolAppProject.services.interfaces.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +17,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
@@ -22,9 +26,12 @@ public class StudentController {
     private StudentService studentService;
     @Autowired
     private StudentInfoService studentInfoService;
+    @Autowired
+    private ResultsService resultsService;
+    private Student student;
 
 
-   @GetMapping("/getStudentPage")
+    @GetMapping("/getStudentPage")
     public String getStudent(Model model, HttpServletRequest request, HttpServletResponse response){
         Student studentSession = (Student) request.getSession().getAttribute("student");
         if(studentSession !=null){
@@ -110,6 +117,8 @@ public class StudentController {
         return "redirect:/students";
 
     }
+
+
 
 
 

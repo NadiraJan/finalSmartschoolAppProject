@@ -23,7 +23,7 @@
 
             <ul class="navbar-nav">
                 <li class = "nav-item">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" >
                 <img src="images/schoolicon.png" width="30" height="30" class="d-inline-block align-top" alt="">
                 School Management
             </a></li>
@@ -51,12 +51,12 @@
                 </form>
 
 
-                <form class="form-inline">
-                    <button class="btn-logout btn btn-danger btnSubmit" href="index.php">
-                        <span class="glyphicon glyphicon-off"></span> Logout</button></form></ul>
+               <li class="nav-item"><a class="nav-link" href="/logout"><img src="images/logouticon.png" width="30"
+                                                                             height="30"/></a></li>
 
 
-            </ul> </nav></div>
+
+            </ul> </ul></nav></div>
     <br>
 
     <div align="center">
@@ -94,26 +94,23 @@
 
             <a th:href="@{/classTeacher/{classTeacher_id}(classTeacher_id=${classTeacher.id})}"> </a>
 
-
-
-
-
         </div>
 
         <main>
             <header>
                 <div class="content-wrap">
                     <h1 id="para1">Liz Trass</h1>
-                    <p class="center">Here is my contact data:</p>
+                    <p class="center">Here is school contact information:</p>
                     <p class="center">
                     <ul>
-                        <li>GSM: +32 49 4 99 03 66</li>
-                        <li>School address:Pijlstraat 1, 2060 Antwerpen</li>
+                        <li>Phone: +32 49 4 99 03 66</li>
+                        <li>Pijlstraat 1, 2060 Antwerpen</li>
                     </ul>
                     </p>
                     <div class="content-wrap">
                         <h3>What I Teach</h3>
-                        <p>I specailaize in teaching IT lessons. I have taught 2nd and 4th grade. Currently I'm a classteacher of 2AC.</p>
+                        <p>I specailaize in teaching IT lessons. <br>
+                            Currently I'm a classteacher of 2AC.</p>
                         </p>
                         <br>
 

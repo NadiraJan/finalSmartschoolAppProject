@@ -15,7 +15,7 @@ public class Results {
     private Long id;
     private double maxPoint;
     @Enumerated(EnumType.STRING)
-    @Column(length=255, nullable = false)
+    @Column(length = 255, nullable = false)
     private Subjects subjects;
     private String remarks;
 

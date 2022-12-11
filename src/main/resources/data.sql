@@ -33,4 +33,10 @@ insert into results (id,maxPoint,subjects,remarks,student_id)values (18,98.0,'EC
 insert into results (id,maxPoint,subjects,remarks,student_id)values (19,60.00,'ECONOMY','fair',4);
 insert into results (id,maxPoint,subjects,remarks,student_id)values (20,98.0,'ECONOMY','awesome',5);
 
+insert into studentInfo (studentInfoId,classTeacherId, resultsId,studentId)values (1,1, 20,5);
 
+insert into parent(id,firstName, lastName, email, password,relation,student_id)values(1,'Hella','Buynder','hella@mail.com','123','mother',3);
+insert into parent(id,firstName, lastName, email, password,relation,student_id)values(2,'Jan','Kwak','kwak@proximus.be','123','father',1);
+insert into parent(id,firstName, lastName, email, password,relation,student_id)values(3,'Pieter','Lemberg','lemberg@telenet.be','123','father',4);
+insert into parent(id,firstName, lastName, email, password,relation,student_id)values(4,'Els','Smith','els@hotmail.com','123','mother',2);
+insert into parent(id,firstName, lastName, email, password,relation,student_id)values(5,'Sofie','Sel','sel@belgacom.be','123','mother',5);
