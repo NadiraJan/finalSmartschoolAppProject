@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.security.Principal;
 import java.util.List;
 
 @Controller
@@ -35,12 +36,12 @@ public class ParentController {
     }
 
     @GetMapping("/parents/{studentId}")
-    public String getAllParentsByStudent(Model model, @PathVariable Long student_id){
-        Student student = studentService.getStudentById(student_id);
+    public String showAllParentsByStudent(Model model, @PathVariable() Long id, Principal principal){
+        Student student = studentService.getStudentById(id);
         List<Parent> parents = parentService.getParentByStudent(student);
-        model.addAttribute("parents", parents);
+        model.addAttribute("parents", parentService.getParentByStudent(student));
 
-        return "parents";
+        return "parent_home";
 
 
     }

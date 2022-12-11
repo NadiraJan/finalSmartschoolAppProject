@@ -28,9 +28,6 @@ public class ResultsController {
     @Autowired
     private StudentService studentService;
 
-
-
-
     @GetMapping("/results")
     public String listResults(Model model) {
 
@@ -106,7 +103,6 @@ public class ResultsController {
 
         return "results";
     }*/
-
 
 
 
