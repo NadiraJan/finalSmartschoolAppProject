@@ -29,5 +29,11 @@ public class Appointment {
 
 
 
+    @ManyToOne
+    @JoinColumn(name = "classTeacher_id")
+    private ClassTeacher classTeacher;
+
+
+
 }
 

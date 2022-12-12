@@ -45,6 +45,12 @@ public class ParentController {
 
 
     }
+    @GetMapping("/parents")
+    public String listParents(Model model) {
+        model.addAttribute("parents", parentService.getAllParents());
+        return "parents";
+
+    }
 
 
 

@@ -19,7 +19,7 @@ public class Student extends User {
 
     @NotFound(action = NotFoundAction.IGNORE)
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = true)
-    @JoinColumn(name = "classTeacher_id", nullable = true)
+    @JoinColumn(name = "classTeacher_id", nullable = false)
     private ClassTeacher classTeacher;
 
 

@@ -20,8 +20,12 @@ public class ClassTeacher extends User {
 
     @OneToMany(mappedBy = "classTeacher",
             cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+
     private Set<Student> students = new HashSet<>();
 
 
+    @ManyToOne
+    @JoinColumn(name = "appointment_id")
+    private Appointment appointment;
 
 }
