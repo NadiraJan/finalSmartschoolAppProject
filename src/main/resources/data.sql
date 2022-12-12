@@ -40,3 +40,4 @@ insert into parent(id,firstName, lastName, email, password,relation,student_id)v
 insert into parent(id,firstName, lastName, email, password,relation,student_id)values(3,'Pieter','Lemberg','lemberg@telenet.be','123','father',4);
 insert into parent(id,firstName, lastName, email, password,relation,student_id)values(4,'Els','Smith','els@hotmail.com','123','mother',2);
 insert into parent(id,firstName, lastName, email, password,relation,student_id)values(5,'Sofie','Sel','sel@belgacom.be','123','mother',5);
+

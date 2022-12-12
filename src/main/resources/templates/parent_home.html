@@ -68,12 +68,12 @@
 </navbar>
 <div class="container">
 <div id="mainbox">
-    <h4 id="title">PARENT'S PAGE:</h4>
+    <h2 id="title">PARENT'S INFO:</h2>
     <hr />
     <table class="table">
         <thead>
         <tr>
-
+            <th>My ID</th>
             <th>First Name</th>
             <th>Last Name</th>
             <th>Email</th>
@@ -86,7 +86,7 @@
 
         <tbody>
         <tr th:object="${parent}">
-
+            <td th:text="*{id}"></td>
             <td th:text="*{firstName}"></td>
             <td th:text="*{lastName}"></td>
             <td th:text="*{email}"></td>

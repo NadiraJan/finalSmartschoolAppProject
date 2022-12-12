@@ -7,8 +7,8 @@
       integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
       crossorigin="anonymous">
 <link th:href="@{/css/login.css}" rel="stylesheet" type="text/css">
-<div style="background-image:url('images/img3.jpg');
-        background-size:100% 100%;height:750px" ;></div>
+
+
 
 </head>
 <body>
@@ -21,10 +21,11 @@
                 <div class="mb-4 text-center">
                     <h1> School management</h1>
                 </div>
-                <a onclick="history.back(-1)" class="link-button link-back-button">Go Back</a>
+             <!--   <a onclick="history.back(-1)" class="link-button link-back-button">Go Back</a>!-->
+                <a href="/">Go Back</a></p>
                 <!-- error message -->
                 <div th:if="${param.error}">
-                    <div class="alert alert-danger">Invalid username or password</div>
+                    <div class="alert alert-danger">Invalid username or password.</div>
                 </div>
                 <!-- logout message -->
                 <div th:if="${param.logout}">
@@ -64,5 +65,6 @@
         </div>
     </div>
 </div>
+
 </body>
 </html>

@@ -4,6 +4,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -20,5 +21,7 @@ public class ClassTeacher extends User {
     @OneToMany(mappedBy = "classTeacher",
             cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<Student> students = new HashSet<>();
+
+
 
 }

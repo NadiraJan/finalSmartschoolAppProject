@@ -1,21 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=Amarante');
 
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
-  outline: none;
-  -webkit-font-smoothing: antialiased;
-  -webkit-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-html { overflow-y: scroll; }
+
 body {
   background: #eee url('https://i.imgur.com/eeQeRmk.png'); /* https://subtlepatterns.com/weave/ */
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -26,95 +10,133 @@ body {
   padding-bottom: 55px;
 }
 
-::selection { background: #5f74a0; color: #fff; }
-::-moz-selection { background: #5f74a0; color: #fff; }
-::-webkit-selection { background: #5f74a0; color: #fff; }
-
-br { display: block; line-height: 1.6em; }
-
-article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
-ol, ul { list-style: none; }
-
-input, textarea {
-  -webkit-font-smoothing: antialiased;
-  -webkit-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  outline: none;
+html {
+  font-size: 100%
 }
 
-blockquote, q { quotes: none; }
-blockquote:before, blockquote:after, q:before, q:after { content: ''; content: none; }
-strong, b { font-weight: bold; }
-
-table { border-collapse: collapse; border-spacing: 0; }
-img { border: 0; max-width: 100%; }
-
-h3 {
-  font-family: 'Amarante', Tahoma, sans-serif;
-  font-weight: bold;
-  font-size: 3.6em;
-  line-height: 1.7em;
-  margin-bottom: 10px;
-  text-align: center;
-  color: grey;
-  margin-top:10px;
+body {
+  font-size: 1em
 }
 
-
-/** page structure **/
-#wrapper {
-  display: block;
-  width: 850px;
-  background: #fff;
-  margin: 0 auto;
-  padding: 10px 17px;
-  -webkit-box-shadow: 2px 2px 3px -1px rgba(0,0,0,0.35);
+p{
+ margin-bottom:1em;
 }
 
-#keywords {
-  margin: 0 auto;
+.btn {
+  font-size: 1em
+}
+
+.btn-lg{
+  line-height: 1.5;
+}
+
+.h1, h1 {
+  font-size: 2em
+}
+
+.h2, h2 {
+  font-size: 1.8em
+}
+
+.h3, h3 {
+  font-size: 1.6em
+}
+
+.h4, h4 {
+  font-size: 1.4em
+}
+
+.h5, h5 {
+  font-size: 1.2em
+}
+
+.h6, h6 {
+  font-size: 1em
+}
+
+.nav, .navbar {
+  font-size: 1em
+}
+
+.navbar-brand {
+  font-size: 1.2em
+}
+
+.control-label, .form-control, input, label {
+  font-size: 1em
+}
+
+.form-control {
+  padding: .4em .8em;//.375em .75em;
+  height: 2.5em;//2.125em
+}
+
+.input-lg {
   font-size: 1.2em;
-  margin-bottom: 15px;
+  padding: .625em 1em;
+  height: 2.875em
 }
 
-
-#keywords thead {
-  cursor: pointer;
-  background: #c9dff0;
-}
-#keywords thead tr th {
-  font-weight: bold;
-  padding: 12px 30px;
-  padding-left: 42px;
-}
-#keywords thead tr th span {
-  padding-right: 20px;
-  background-repeat: no-repeat;
-  background-position: 100% 100%;
+.input-sm {
+  height: 2.2em;//2em;
+  font-size: .85em;
+  padding: .3125em .625em
 }
 
-#keywords thead tr th.headerSortUp, #keywords thead tr th.headerSortDown {
-  background: #acc8dd;
+.label {
+  line-height: 2
 }
 
-#keywords thead tr th.headerSortUp span {
-  background-image: url('https://i.imgur.com/SP99ZPJ.png');
-}
-#keywords thead tr th.headerSortDown span {
-  background-image: url('https://i.imgur.com/RkA9MBo.png');
-}
-
-#keywords tbody tr {
-  color: #555;
-}
-#keywords tbody tr td {
-  text-align: center;
-  padding: 15px 10px;
+.badge {
+  font-size: .85em;
+  min-width: 1em;
+  padding: .225em .7em
 }
 
-#keywords tbody tr td.lalign {
-  text-align: center;
+.dropdown-header, .dropdown-menu {
+  font-size: 1em
 }
+
+.panel-title {
+  font-size: 1em
+}
+
+.jumbotron {
+  font-size: 1em
+}
+
+.jumbotron .h1, .jumbotron h1 {
+  font-size: 3.9375em
+}
+
+.jumbotron p {
+  font-size: 1.3125em
+}
+/*Begin data table tweaks*/
+.table button.btn-danger{
+  background-color:#661312;
+  border-color:#661312;
+}
+.table button.btn-danger:hover{
+  background-color:#912222;
+  border-color:#912222;
+}
+button.btn:hover, button.btn:focus{
+  text-decoration:underline;
+}
+.paginate_button a:hover,
+.paginate_button a:focus,
+.paginate_button.active a{
+  text-decoration:underline;
+}
+.table-striped > tbody > tr:nth-of-type(2n+1){
+  background-color:#f0f0f0;
+}
+th:focus, td:focus, tr:focus{
+  outline: 1px solid #66AFE9;
+  box-shadow:0px 1px 1px rgba(0, 0, 0, 0.075) inset, 0px 0px 8px rgba(102, 175, 233, 0.6);
+}
+/*Obfuscate all the things!*/
+/*td:nth-of-type(-n+3):not(:focus){
+  filter: blur(2px);
+}*/
