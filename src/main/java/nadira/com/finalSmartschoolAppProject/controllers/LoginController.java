@@ -64,33 +64,29 @@ public class LoginController {
             }
 
         } else if (loginDto.getRole().equals("parent")) {
-        List<Parent> parents = parentService.getAllParents();
-        for (Parent parent : parents) {
-            if (parent.getEmail().equals(loginDto.getEmail()) && parent.getPassword().equals(loginDto.getPassword())) {
-                session.setAttribute("parent", parent);
-                return "redirect:/getParentPage";
+            List<Parent> parents = parentService.getAllParents();
+            for (Parent parent : parents) {
+                if (parent.getEmail().equals(loginDto.getEmail()) && parent.getPassword().equals(loginDto.getPassword())) {
+                    session.setAttribute("parent", parent);
+                    return "redirect:/getParentPage";
+                }
             }
         }
-    }
         return "redirect:/login/getLogin";
-}
+    }
 
 
-
-
-
-
-  @GetMapping("/logout")
+    @GetMapping("/logout")
     public String logout(HttpSession session) {
-        session.setAttribute("loginDto",null);
+        session.setAttribute("loginDto", null);
         session.invalidate();
         return "redirect:/login/getLogin";
     }
 
-    /*@GetMapping("/Authorization")
+    @GetMapping("/Authorization")
     public String getAuthErrorPage() {
         return "authErrorPage";
-    }*/
+    }
 
 
 }

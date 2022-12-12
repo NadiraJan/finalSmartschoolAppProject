@@ -71,7 +71,7 @@ public class ClassTeacherController {
     }*/
 
 
-    @GetMapping("/logout")
+  @GetMapping("/logout")
     public String logout(HttpSession session) {
         session.setAttribute("loginDto",null);
         session.invalidate();

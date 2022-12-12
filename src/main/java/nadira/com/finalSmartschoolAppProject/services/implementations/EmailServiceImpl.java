@@ -19,6 +19,7 @@ import java.time.LocalDateTime;
 
 @Service
 public class EmailServiceImpl implements EmailService {
+
     @Autowired
     private JavaMailSender javaMailSender;
 
@@ -27,6 +28,8 @@ public class EmailServiceImpl implements EmailService {
 
     @Autowired
     private EmailMessageRepository emailMessageRepository;*/
+
+
 
 
    /* public String sendEmail(EmailMessage emailMessage) {
