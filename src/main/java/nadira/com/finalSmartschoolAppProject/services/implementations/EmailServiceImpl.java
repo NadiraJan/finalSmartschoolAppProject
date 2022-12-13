@@ -1,13 +1,12 @@
-/*package nadira.com.finalSmartschoolAppProject.services.implementations;
+package nadira.com.finalSmartschoolAppProject.services.implementations;
 
 
-import nadira.com.finalSmartschoolAppProject.entities.EmailMessage;
+/*import nadira.com.finalSmartschoolAppProject.entities.EmailMessage;
 import nadira.com.finalSmartschoolAppProject.repositories.EmailMessageRepository;
 import nadira.com.finalSmartschoolAppProject.services.interfaces.EmailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.core.io.FileSystemResource;
-import org.springframework.mail.SimpleMailMessage;
+
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
@@ -27,12 +26,10 @@ public class EmailServiceImpl implements EmailService {
     private String sender;
 
     @Autowired
-    private EmailMessageRepository emailMessageRepository;*/
+    private EmailMessageRepository emailMessageRepository;
 
 
-
-
-   /* public String sendEmail(EmailMessage emailMessage) {
+    public void sendEmail(EmailMessage emailMessage) {
         MimeMessage mimeMessage = javaMailSender.createMimeMessage();
         MimeMessageHelper mimeMessageHelper;
 
@@ -40,11 +37,11 @@ public class EmailServiceImpl implements EmailService {
             mimeMessageHelper = new MimeMessageHelper(mimeMessage, true);
             mimeMessageHelper.setFrom(sender);
             mimeMessageHelper.setTo(emailMessage.getRecipient());
-            mimeMessageHelper.setText(emailMessage.getMessage());
             mimeMessageHelper.setSubject(emailMessage.getSubject());
+            mimeMessageHelper.setText(emailMessage.getContent());
 
-            FileSystemResource file = new FileSystemResource(new File(emailMessage.getAttachment()));
-            mimeMessageHelper.addAttachment(file.getFilename(), file);
+            // file = new FileSystemResource(new File(emailMessage.getAttachment()));
+          //  mimeMessageHelper.addAttachment(file.getFilename(), file);
 
             javaMailSender.send(mimeMessage);
             return "Mail sent Successfully";
@@ -57,7 +54,7 @@ public class EmailServiceImpl implements EmailService {
 }*/
 
 
-    //Pearl:
+//Pearl:
     /*public void sendEmail(EmailMessage emailMessage) {
 
 

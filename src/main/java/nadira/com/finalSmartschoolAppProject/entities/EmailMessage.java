@@ -17,15 +17,15 @@ public class EmailMessage {
     private String recipient;
     private String subject;
     private String content;
-    private String attachment;
-    private LocalDateTime receivedAt;
-    private LocalDateTime sentAt;
+  //  private String attachment;
+   // private LocalDateTime receivedAt;
+ //   private LocalDateTime sentAt;
 
-    @PrePersist
+  /*  @PrePersist
     protected void oneSent() {
         this.sentAt = LocalDateTime.now();
         this.receivedAt = LocalDateTime.now();
-    }
+    }*/
 
 
     @Override
@@ -34,9 +34,7 @@ public class EmailMessage {
                 "recipient='" + recipient + '\'' +
                 ", subject='" + subject + '\'' +
                 ", message='" + content + '\'' +
-                ", attachment='" + attachment + '\'' +
-                ", receivedAt=" + receivedAt +
-                ", sentAt=" + sentAt +
+
                 '}';
     }
 }

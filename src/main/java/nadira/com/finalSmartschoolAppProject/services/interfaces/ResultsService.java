@@ -18,7 +18,7 @@ public interface ResultsService {
 
     Results getResultsById(Long id);
 
-    Results getResultsByStudent(Student student);
+    List<Results> getResultsByStudent(Student student);
 
 
 }

@@ -3,9 +3,10 @@ package nadira.com.finalSmartschoolAppProject.controllers;
 import nadira.com.finalSmartschoolAppProject.entities.ClassTeacher;
 import nadira.com.finalSmartschoolAppProject.entities.Results;
 import nadira.com.finalSmartschoolAppProject.entities.Student;
-import nadira.com.finalSmartschoolAppProject.entities.StudentInfo;
+//import nadira.com.finalSmartschoolAppProject.entities.StudentInfo;
+//import nadira.com.finalSmartschoolAppProject.services.interfaces.ResultsService;
+//import nadira.com.finalSmartschoolAppProject.services.interfaces.StudentInfoService;
 import nadira.com.finalSmartschoolAppProject.services.interfaces.ResultsService;
-import nadira.com.finalSmartschoolAppProject.services.interfaces.StudentInfoService;
 import nadira.com.finalSmartschoolAppProject.services.interfaces.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,8 +25,8 @@ import java.util.List;
 public class StudentController {
     @Autowired
     private StudentService studentService;
-    @Autowired
-    private StudentInfoService studentInfoService;
+  //  @Autowired
+    //private StudentInfoService studentInfoService;
     @Autowired
     private ResultsService resultsService;
     private Student student;
@@ -44,7 +45,7 @@ public class StudentController {
         }
     }
 
-    @GetMapping("/getStudentInfoPage/{student_id}")
+ /*   @GetMapping("/getStudentInfoPage/{student_id}")
     public String getStudentInfo(@PathVariable("student_id") Long student_id, Model model,HttpServletRequest request) {
         Student studentSession = (Student) request.getSession().getAttribute("student");
         if (studentSession != null) {
@@ -59,7 +60,7 @@ public class StudentController {
             return "redirect:/login";
         }
 
-    }
+    }*/
 
     @GetMapping("/students")
     public String listStudents(Model model) {

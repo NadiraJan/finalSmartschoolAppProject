@@ -33,7 +33,7 @@
             <th><span>Subject</span></th>
             <th><span>Remarks</span></th>
             <th><span>Student ID</span></th>
-            <th><span>Actions</span></th>
+         <!--  <th><span>Actions</span></th>!-->
 
         </tr>
         </thead>
@@ -43,15 +43,15 @@
             <th th:text="${results.maxPoint}"></th>
             <th th:text="${results.subjects}"></th>
             <th th:text="${results.remarks}"></th>
-            <th th:text="${results.student.id}"></th>
+     <th th:text="${results.student.id}"></th>
 
-            <td>
+          <!--  <td>
                 <a th:href="@{/results/edit/{id}(id=${results.id})}"
                    class="btn btn-primary"> Update </a>
 
                 <a th:href="@{/results/{id}(id=${results.id})}"
                    class="btn btn-danger"> Delete </a>
-            </td>
+            </td>!-->
         </tr>
         </tbody>
     </table>

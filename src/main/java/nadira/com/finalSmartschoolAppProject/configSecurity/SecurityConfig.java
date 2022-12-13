@@ -1,6 +1,6 @@
 package nadira.com.finalSmartschoolAppProject.configSecurity;
 
-import nadira.com.finalSmartschoolAppProject.services.interfaces.StudentService;
+/*import nadira.com.finalSmartschoolAppProject.services.interfaces.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -12,7 +12,7 @@ import org.springframework.security.web.authentication.rememberme.JdbcTokenRepos
 import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
-import javax.sql.DataSource;
+import javax.sql.DataSource;*/
 
 /*@EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {

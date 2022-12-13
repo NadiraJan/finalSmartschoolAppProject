@@ -1,7 +1,7 @@
 package nadira.com.finalSmartschoolAppProject.entities;
 
 
-import lombok.Data;
+/*import lombok.Data;
 
 import javax.persistence.*;
 
@@ -20,4 +20,4 @@ public class StudentInfo {
     @JoinColumn(name = "studentId", nullable = false)
     private Student student;
 
-}
+}*/

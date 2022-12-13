@@ -1,14 +1,14 @@
 package nadira.com.finalSmartschoolAppProject.services.implementations;
 
-import nadira.com.finalSmartschoolAppProject.entities.StudentInfo;
+/*import nadira.com.finalSmartschoolAppProject.entities.StudentInfo;
 import nadira.com.finalSmartschoolAppProject.repositories.StudentInfoRepository;
-import nadira.com.finalSmartschoolAppProject.services.interfaces.StudentInfoService;
+import nadira.com.finalSmartschoolAppProject.services.interfaces.StudentInfoService;*/
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
+/*@Service
 public class StudentInfoImpl implements StudentInfoService {
 
     @Autowired
@@ -46,4 +46,4 @@ public class StudentInfoImpl implements StudentInfoService {
         return studentInfoRepository.findByStudentId(student_id);
     }
 
-}
+}*/

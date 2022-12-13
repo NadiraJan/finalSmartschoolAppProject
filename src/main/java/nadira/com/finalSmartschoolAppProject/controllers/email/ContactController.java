@@ -1,21 +1,36 @@
 package nadira.com.finalSmartschoolAppProject.controllers.email;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeMessage;
+import javax.servlet.http.HttpServletRequest;
+import java.io.UnsupportedEncodingException;
 
 
 @Controller
 public class ContactController {
- /*   @Autowired
-    private JavaMailSender mailSender;*/
 
 
-    @GetMapping("/contact")
+ @Autowired
+    private JavaMailSender mailSender;
+
+    public ContactController(JavaMailSender mailSender) {
+        this.mailSender = mailSender;
+    }
+
+   @GetMapping("/contact")
     public String showContactForm() {
         return "contact_form";
     }
 
-   /* @PostMapping("/contact")
+
+  @PostMapping("/contact")
     public String submitContact(HttpServletRequest request) throws MessagingException, UnsupportedEncodingException {
         String fullname = request.getParameter("fullname");
         String email = request.getParameter("email");
@@ -40,5 +55,5 @@ public class ContactController {
        mailSender.send(message);
 
         return "message";
-    }*/
+    }
 }

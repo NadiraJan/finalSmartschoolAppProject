@@ -42,11 +42,9 @@ public class ResultsServiceImpl implements ResultsService {
     }
 
     @Override
-    public Results getResultsByStudent(Student student) {
+    public List<Results> getResultsByStudent(Student student) {
         return resultsRepository.findResultsByStudent(student);
     }
-
-
 
 
 }

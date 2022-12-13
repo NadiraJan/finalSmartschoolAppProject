@@ -5,7 +5,7 @@ import nadira.com.finalSmartschoolAppProject.entities.Results;
 import nadira.com.finalSmartschoolAppProject.entities.Student;
 import nadira.com.finalSmartschoolAppProject.services.interfaces.ClassTeacherService;
 import nadira.com.finalSmartschoolAppProject.services.interfaces.ResultsService;
-import nadira.com.finalSmartschoolAppProject.services.interfaces.StudentInfoService;
+//import nadira.com.finalSmartschoolAppProject.services.interfaces.StudentInfoService;
 import nadira.com.finalSmartschoolAppProject.services.interfaces.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,8 +24,8 @@ import java.util.List;
 public class ClassTeacherController {
 
 
-    @Autowired
-    private StudentInfoService studentInfoService;
+   /* @Autowired
+    private StudentInfoService studentInfoService;*/
     @Autowired
     private ClassTeacherService classTeacherService;
     @Autowired

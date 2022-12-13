@@ -1,6 +1,6 @@
 package nadira.com.finalSmartschoolAppProject.services.interfaces;
 
-import nadira.com.finalSmartschoolAppProject.entities.StudentInfo;
+/*import nadira.com.finalSmartschoolAppProject.entities.StudentInfo;
 
 import java.util.List;
 
@@ -15,4 +15,4 @@ public interface StudentInfoService {
 
 
 
-}
+}*/
