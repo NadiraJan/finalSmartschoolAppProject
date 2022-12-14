@@ -3,9 +3,9 @@ HTML CSS JSResult Skip Results Iframe
     font-family: 'Maven Pro', sans-serif;
     background-color: #78c0eb;
     color:#73a6e6;
-    padding-left: 0px;
+    padding-left: 60px;
     border: 0px;
-    margin-left: 0px;
+    margin-left: 60px;
 }
 
 .clear {
@@ -13,9 +13,9 @@ HTML CSS JSResult Skip Results Iframe
 }
 
 #website {
-    padding: 0px;
+    padding: 20px;
     border: 0px;
-    margin: 0px;
+    margin:.50px;
 }
 
 #mainbar {
@@ -26,7 +26,7 @@ HTML CSS JSResult Skip Results Iframe
     margin-left: 20px;
     background-color:#73a6e6;
     box-shadow: 1px 0px 5px 0px #0D8B69;
-  position:fixed;
+  position:relative;
   z-index:10;
   overflow:visible;
   height:70px;
@@ -71,7 +71,7 @@ margin-left:200px;}
   position:absolute;
   left:160px;
   top:10px;
-  width:30px;
+  width:130px;
   height:30px;
     background-color: white;
     border-radius: 100%;
@@ -92,13 +92,13 @@ margin-left:200px;}
 
 
 #backgrounder {
-  position:absolute;
+  position:fixed;
   height:200px;
   width:100%;
     top:70px;
 }
 #backgrounder #buttons{
-  position:absolute;
+  position:fixed;
   bottom:0px;
   left:45%;
   width:45px;
@@ -121,7 +121,7 @@ margin-left:200px;}
 }
 #wrapper{
     display:block;
-    position:absolute;
+    position:fixed;
     top:270px;
     z-index:9;
     background-color:#031E39;

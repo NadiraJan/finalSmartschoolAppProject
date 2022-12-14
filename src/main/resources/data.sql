@@ -2,7 +2,7 @@ insert into classTeacher(id,firstName, lastName,email, password,phoneNumber,myWo
 
 
 insert into student (id,firstName,lastName,email, password,age,gender,grade,classTeacher_id)values(1,'Jens','Kwak','jens@mail.com','password',13,'Boy','2AC',1);
-insert into student (id,firstName,lastName,email, password,age,gender,grade,classTeacher_id)values(2,'Valerie','Smith','smith@net.com','123',13,'Girl','2AC',1);
+insert into student (id,firstName,lastName,email, password,age,gender,grade,classTeacher_id)values(2,'Valerie','Smith','smith@net.com','pass',13,'Girl','2AC',1);
 insert into student (id,firstName,lastName,email, password,age,gender,grade,classTeacher_id)values(3,'Elise','Buynder','elise@yahoo.com','pass',12,'Girl','2AC',1);
 insert into student (id,firstName,lastName,email, password,age,gender,grade,classTeacher_id)values(4,'Jan','Lemberg','jan@mail.be','1234',13,'Boy','2AC',1);
 insert into student (id,firstName,lastName,email, password,age,gender,grade,classTeacher_id)values(5,'Bob','Claus','bob@hotmail.com','password',13,'Boy','2AC',1);
@@ -33,7 +33,6 @@ insert into results (id,maxPoint,subjects,remarks,student_id)values (18,98.0,'EC
 insert into results (id,maxPoint,subjects,remarks,student_id)values (19,60.00,'ECONOMY','fair',4);
 insert into results (id,maxPoint,subjects,remarks,student_id)values (20,98.0,'ECONOMY','awesome',5);
 
-/*insert into studentInfo (studentInfoId,classTeacherId, resultsId,studentId)values (1,1, 20,5);*/
 
 insert into parent(id,firstName, lastName, email, password,relation,student_id)values(1,'Hella','Buynder','hella@mail.com','123','mother',3);
 insert into parent(id,firstName, lastName, email, password,relation,student_id)values(2,'Jan','Kwak','kwak@proximus.be','123','father',1);

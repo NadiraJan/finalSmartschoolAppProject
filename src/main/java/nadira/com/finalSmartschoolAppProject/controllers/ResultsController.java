@@ -1,12 +1,9 @@
 package nadira.com.finalSmartschoolAppProject.controllers;
 
 import nadira.com.finalSmartschoolAppProject.entities.*;
-import nadira.com.finalSmartschoolAppProject.entities.dto.LoginDto;
 import nadira.com.finalSmartschoolAppProject.services.interfaces.ResultsService;
 import nadira.com.finalSmartschoolAppProject.services.interfaces.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,21 +25,26 @@ public class ResultsController {
     @Autowired
     private StudentService studentService;
 
+
+  /*  @GetMapping("/results")
+    public String listResults(Model model) {
+        model.addAttribute("results", resultsService.getAllResults());
+        return "results";
+    }*/
+
     @GetMapping("/results")
     public String listResults(Model model, HttpSession httpSession) {
         Object user = httpSession.getAttribute("student");
+    Object user2 = httpSession.getAttribute("classTeacher");
         if (user instanceof Student) {
             model.addAttribute("results",
                     resultsService.getResultsByStudent(((Student) user)));
-        } else if (user instanceof ClassTeacher) {
+        } else if (user2 instanceof ClassTeacher) {
 
             model.addAttribute("results", resultsService.getAllResults());
         }
-
-
         return "results";
     }
-
 
     @GetMapping("/results/new")
     public String createResultsForm(Model model) {
@@ -50,7 +52,6 @@ public class ResultsController {
         model.addAttribute("results", results);
         return "create_results";
     }
-
 
     @PostMapping("/results")
     public String saveResults(@ModelAttribute("results") Results results) {
@@ -74,8 +75,6 @@ public class ResultsController {
         existingResults.setRemarks(results.getRemarks());
         resultsService.updateResults(existingResults);
         return "redirect:/results";
-
-
     }
 
     @GetMapping("/results/{id}")
@@ -84,5 +83,4 @@ public class ResultsController {
         return "redirect:/results";
 
     }
-
 }

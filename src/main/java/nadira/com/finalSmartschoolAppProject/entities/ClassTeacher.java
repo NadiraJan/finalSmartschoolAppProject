@@ -24,8 +24,8 @@ public class ClassTeacher extends User {
     private Set<Student> students = new HashSet<>();
 
 
-    @ManyToOne
+  /*  @ManyToOne
     @JoinColumn(name = "appointment_id")
-    private Appointment appointment;
+    private Appointment appointment;*/
 
 }

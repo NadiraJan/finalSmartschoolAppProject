@@ -10,7 +10,6 @@
     <link th:href="@{/css/adminhome2.css}" rel="stylesheet" type="text/css">
 
 
-
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
     <script src="https://use.fontawesome.com/b077a438c4.js"></script>
     <meta name="viewport" content="width=device-width, user-scalable=no">
@@ -35,7 +34,6 @@
     </a>
     <!-- https://stackoverflow.com/questions/26317679 -->
 
-
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
 
@@ -43,9 +41,8 @@
                                                                           height="25"/> <span
                     class="sr-only">(current)</span></a></li>
             <li class="nav-item"><a class="nav-link" href="/timetable">TimeTable</a></li>
-            <li class="nav-item"><a class="nav-link" href="/results">Results</a></li>
-            <li class="nav-item"><a class="nav-link disabled" href="https://www.atheneumantwerpen.be/nieuws/">News</a>
-            </li>
+            <li class="nav-item"><a class="nav-link" href="/results">MyTestResults</a></li>
+            <li class="nav-item"><a class="nav-link disabled" href="https://www.atheneumantwerpen.be/nieuws/">News</a></li>
             <li class="nav-item"><a class="nav-link" href="/contact"><i class="fa fa-envelope"></i></a></li>
             <li class="nav-item"><a class="nav-link" href="/logout"><img src="images/logouticon.png" width="25"
                                                                          height="25"/></a></li>
@@ -66,7 +63,6 @@
         <th>Grade</th>
     </tr>
     </thead>
-
     <tbody>
     <tr th:object="${student}">
         <td th:text="*{id}"></td>
@@ -75,20 +71,14 @@
         <td th:text="*{age}"></td>
         <td th:text="*{gender}"></td>
         <td th:text="*{grade}"></td>
-
     </tr>
     </tbody>
 </table>
 <br>
 
-
 <a th:href="@{/student/{student_id}(student_id=${student.id})}"
    class="btn waves-effect waves-dark btn-primary btn-outline-primary">Student Info</a>
-
-
-
 <div id="space"></div>
-
 </div>
 </body>
 </html>

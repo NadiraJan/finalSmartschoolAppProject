@@ -1,13 +1,16 @@
 package nadira.com.finalSmartschoolAppProject.controllers;
 
 import nadira.com.finalSmartschoolAppProject.entities.ClassTeacher;
+import nadira.com.finalSmartschoolAppProject.entities.Parent;
 import nadira.com.finalSmartschoolAppProject.entities.Results;
 import nadira.com.finalSmartschoolAppProject.entities.Student;
 //import nadira.com.finalSmartschoolAppProject.entities.StudentInfo;
 //import nadira.com.finalSmartschoolAppProject.services.interfaces.ResultsService;
 //import nadira.com.finalSmartschoolAppProject.services.interfaces.StudentInfoService;
+import nadira.com.finalSmartschoolAppProject.services.interfaces.ParentService;
 import nadira.com.finalSmartschoolAppProject.services.interfaces.ResultsService;
 import nadira.com.finalSmartschoolAppProject.services.interfaces.StudentService;
+import org.apache.catalina.filters.ExpiresFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -30,6 +33,8 @@ public class StudentController {
     @Autowired
     private ResultsService resultsService;
     private Student student;
+    @Autowired
+    private ParentService parentService;
 
 
     @GetMapping("/getStudentPage")
@@ -63,11 +68,13 @@ public class StudentController {
     }*/
 
     @GetMapping("/students")
-    public String listStudents(Model model) {
+    public String listStudents(Model model,HttpSession session) {
         model.addAttribute("students", studentService.getAllStudents());
         return "students";
 
     }
+
+
 
    @GetMapping("/students/new")
     public String createStudentForm(Model model) {

@@ -2,6 +2,11 @@ HTML SCSSResult Skip Results Iframe
 body{
   background-color: #bdc3c7;
 }
+
+table{
+padding-left:200px;
+margin-left:200px;}
+
 .table-fixed{
   width: 100%;
   background-color: #f3f3f3;
