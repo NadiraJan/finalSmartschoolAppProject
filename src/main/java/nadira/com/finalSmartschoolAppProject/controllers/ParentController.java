@@ -47,11 +47,13 @@ public class ParentController {
 
 
     @GetMapping("/parents")
-    public String listParents(Model model) {
-        model.addAttribute("parents", parentService.getAllParents());
+    public String listParents(Model model, HttpSession session) {
+        Object user = session.getAttribute("classTeacher");
+        if (user instanceof ClassTeacher) {
+            model.addAttribute("parents", parentService.getAllParents());
+
+        }
         return "parents";
 
     }
-
-
 }

@@ -69,11 +69,14 @@ public class StudentController {
 
     @GetMapping("/students")
     public String listStudents(Model model,HttpSession session) {
-        model.addAttribute("students", studentService.getAllStudents());
+
+        Object user = session.getAttribute("classTeacher");
+
+       if (user instanceof ClassTeacher) {
+            model.addAttribute("students", studentService.getAllStudents());
+        }
         return "students";
-
     }
-
 
 
    @GetMapping("/students/new")

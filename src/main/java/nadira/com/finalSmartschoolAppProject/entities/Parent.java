@@ -3,6 +3,7 @@ package nadira.com.finalSmartschoolAppProject.entities;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Data
@@ -14,5 +15,6 @@ public class Parent extends User {
 
     @OneToOne(fetch = FetchType.LAZY)
     private Student student;
+
 
 }
