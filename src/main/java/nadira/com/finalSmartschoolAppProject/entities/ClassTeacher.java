@@ -11,7 +11,7 @@ import java.util.Set;
 @Data
 public class ClassTeacher extends User {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
     private int phoneNumber;
     private String myWorkingDays;
@@ -19,7 +19,7 @@ public class ClassTeacher extends User {
 
 
     @OneToMany(mappedBy = "classTeacher",
-            cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
+            cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 
     private Set<Student> students = new HashSet<>();
 

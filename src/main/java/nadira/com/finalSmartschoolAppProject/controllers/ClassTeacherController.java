@@ -48,12 +48,12 @@ public class ClassTeacherController {
     }
 
 
-    @GetMapping("/classTeacher")
+  /*  @GetMapping("/classTeacher")
     public String listClassTeacher(Model model) {
         model.addAttribute("classTeacher", classTeacherService.getAllClassTeacher());
         return "classTeacher";
 
-    }
+    }*/
 
 
 

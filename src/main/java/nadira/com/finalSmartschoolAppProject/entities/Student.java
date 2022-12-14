@@ -11,15 +11,15 @@ import java.util.List;
 @Data
 public class Student extends User {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
     private int age;
     private String gender;
     private String grade;
 
     @NotFound(action = NotFoundAction.IGNORE)
-    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.LAZY, optional = true)
-    @JoinColumn(name = "classTeacher_id", nullable = false)
+    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "classTeacher_id", nullable = true)
     private ClassTeacher classTeacher;
 
 

@@ -1,6 +1,6 @@
 package nadira.com.finalSmartschoolAppProject.configSecurity;
 
-/*import nadira.com.finalSmartschoolAppProject.services.interfaces.StudentService;
+import nadira.com.finalSmartschoolAppProject.services.interfaces.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -12,9 +12,26 @@ import org.springframework.security.web.authentication.rememberme.JdbcTokenRepos
 import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
-import javax.sql.DataSource;*/
+import javax.sql.DataSource;
 
-/*@EnableWebSecurity
+import nadira.com.finalSmartschoolAppProject.services.interfaces.StudentService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.authentication.configurers.userdetails.DaoAuthenticationConfigurer;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.NoOpPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
+import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+
+import javax.sql.DataSource;
+
+@EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private StudentService userService;
@@ -27,20 +44,24 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return new BCryptPasswordEncoder();
     }
 
+
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
 
         http.authorizeRequests().antMatchers(
-                        "/registration**",
+
+                        "/register**",
+                        "/h2-console/**",
                         "/js/**",
                         "/css/**",
-                        "/img/**",
-                        "/login/**",
+                        "/images/**",
+                        "/login/postLogin",
                         "/parent/**",
                         "/student/**",
                         "/classTeacher/**").permitAll()
-                .antMatchers("/webjars/**", "/assets/**").permitAll()
+
                 .antMatchers("/")
                 .permitAll()
                 .anyRequest()
@@ -59,18 +80,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .logoutSuccessUrl("/login?logout")
                 .permitAll();
 
-
     }
-    PersistentTokenRepository persistentTokenRepository() {
+    }
+  /*  PersistentTokenRepository persistentTokenRepository() {
         JdbcTokenRepositoryImpl tokenRepositoryImpl = new JdbcTokenRepositoryImpl();
         tokenRepositoryImpl.setDataSource(dataSource);
         return tokenRepositoryImpl;
     }
-}*/
+}
 
 
 
-    /*    auth.inMemoryAuthentication()
+     /*auth.inMemoryAuthentication()
                 .withUser("student")
                 .password("pass")
                 .roles("USER")
@@ -85,28 +106,27 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 
 
-    }*/
- /*   @Override
-    protected void configure(HttpSecurity http) throws Exception {
+    }
+    @Override
+    protected void configure(HttpSecurity http) throws Exception{
 
         http.authorizeRequests()
-                .antMatchers("/classTeacher").hasRole("ADMIN")
-                .antMatchers("/students").hasRole("ADMIN")
-                .antMatchers("/results").hasRole("ADMIN")
-                .antMatchers("/parents").hasRole("ADMIN")
-                .antMatchers("/user").hasAnyRole("USER","ADMIN")
-                .antMatchers("/").permitAll()
-                .and().formLogin();
+        .antMatchers("/classTeacher").hasRole("ADMIN")
+        .antMatchers("/students").hasRole("ADMIN")
+        .antMatchers("/results").hasRole("ADMIN")
+        .antMatchers("/parents").hasRole("ADMIN")
+        .antMatchers("/user").hasAnyRole("USER","ADMIN")
+        .antMatchers("/").permitAll()
+        .and().formLogin();
 
 
-
-    }
+        }
 
     @Bean
     public PasswordEncoder encoder(){
         return NoOpPasswordEncoder.getInstance();
-    }*/
+    }
 
 
-
+}*/
 

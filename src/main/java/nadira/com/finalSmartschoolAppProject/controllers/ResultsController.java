@@ -78,7 +78,7 @@ public class ResultsController {
     }
 
     @GetMapping("/results/{id}")
-    public String deleteResult(@PathVariable Long id) {
+    public String deleteResults(@PathVariable Long id) {
         resultsService.deleteResultsById(id);
         return "redirect:/results";
 

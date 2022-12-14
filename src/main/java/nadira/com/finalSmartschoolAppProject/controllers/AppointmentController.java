@@ -1,8 +1,8 @@
 package nadira.com.finalSmartschoolAppProject.controllers;
 
 import com.sun.mail.iap.Response;
-import nadira.com.finalSmartschoolAppProject.entities.Appointment;
-import nadira.com.finalSmartschoolAppProject.services.interfaces.AppointmentService;
+//import nadira.com.finalSmartschoolAppProject.entities.Appointment;
+//import nadira.com.finalSmartschoolAppProject.services.interfaces.AppointmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 
