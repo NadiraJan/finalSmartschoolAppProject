@@ -62,8 +62,6 @@ public class ContactController {
         helper.setSubject(mailSubject);
         helper.setText(mailContent, true);
 
-
-
         if (!multipartFile.isEmpty()) {
             String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
 

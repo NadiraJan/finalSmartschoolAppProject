@@ -10,7 +10,6 @@ import javax.persistence.*;
 @Setter
 @Getter
 @NoArgsConstructor
-@Table(name = "users")
 @MappedSuperclass
 public abstract class User {
     @Id

@@ -5,6 +5,7 @@ margin-right:45px;
 padding-right:45px;}
 
 
+
 .nav-link #navBars {
 	margin-top: -3px;
 	padding: 8px 15px 3px;
@@ -21,7 +22,7 @@ padding-right:45px;}
 
 .nav-link #navBars span {
 	position: relative;
-	z-index: 1;
+	z-index: ;
 	display: block;
 	margin-bottom: 6px;
 	width: 24px;
@@ -29,6 +30,11 @@ padding-right:45px;}
 	background-color: rgba(125, 125, 126, 1);
 	border-radius: .25rem;
 }
-
+ footer{
+  background-color: #5e6670;
+   color: #F7FFF7;
+   text-align: center;
+   padding-bottom:2px;
+ }
 
 

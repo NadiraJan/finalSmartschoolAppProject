@@ -7,7 +7,7 @@ import org.springframework.web.servlet.config.annotation.ContentNegotiationConfi
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-import java.nio.charset.Charset;
+/*import java.nio.charset.Charset;
 import java.util.List;
 
 @Configuration
@@ -40,5 +40,5 @@ public class WebConfig implements WebMvcConfigurer {
         configurer.favorPathExtension(false);
     }
 
-}
+}*/
 

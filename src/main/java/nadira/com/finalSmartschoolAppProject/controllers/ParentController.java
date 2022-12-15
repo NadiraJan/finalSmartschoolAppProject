@@ -48,8 +48,8 @@ public class ParentController {
 
     @GetMapping("/parents")
     public String listParents(Model model, HttpSession session) {
-        Object user = session.getAttribute("classTeacher");
-        if (user instanceof ClassTeacher) {
+        Object member = session.getAttribute("classTeacher");
+        if (member instanceof ClassTeacher) {
             model.addAttribute("parents", parentService.getAllParents());
 
         }

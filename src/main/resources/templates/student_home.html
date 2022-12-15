@@ -8,6 +8,7 @@
     <meta charset="UTF-8">
     <link th:href="@{/css/studenthome.css}" rel="stylesheet" type="text/css">
     <link th:href="@{/css/adminhome2.css}" rel="stylesheet" type="text/css">
+    <link th:href="@{/css/calender.css}" rel="stylesheet" type="text/css">
 
 
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
@@ -42,7 +43,8 @@
                     class="sr-only">(current)</span></a></li>
             <li class="nav-item"><a class="nav-link" href="/timetable">TimeTable</a></li>
             <li class="nav-item"><a class="nav-link" href="/results">MyTestResults</a></li>
-            <li class="nav-item"><a class="nav-link disabled" href="https://www.atheneumantwerpen.be/nieuws/">News</a></li>
+            <li class="nav-item"><a class="nav-link disabled" href="https://www.atheneumantwerpen.be/nieuws/">News</a>
+            </li>
             <li class="nav-item"><a class="nav-link" href="/contact"><i class="fa fa-envelope"></i></a></li>
             <li class="nav-item"><a class="nav-link" href="/logout"><img src="images/logouticon.png" width="25"
                                                                          height="25"/></a></li>
@@ -53,32 +55,63 @@
 <h3>STUDENT PAGE</h3>
 <div class="table-responsive-sm">
     <table class="table">
-    <thead>
-    <tr>
-        <th>My ID</th>
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th>Age</th>
-        <th>Gender</th>
-        <th>Grade</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:object="${student}">
-        <td th:text="*{id}"></td>
-        <td th:text="*{firstName}"></td>
-        <td th:text="*{lastName}"></td>
-        <td th:text="*{age}"></td>
-        <td th:text="*{gender}"></td>
-        <td th:text="*{grade}"></td>
-    </tr>
-    </tbody>
-</table>
-<br>
+        <thead>
+        <tr>
+            <th>My ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Age</th>
+            <th>Gender</th>
+            <th>Grade</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:object="${student}">
+            <td th:text="*{id}"></td>
+            <td th:text="*{firstName}"></td>
+            <td th:text="*{lastName}"></td>
+            <td th:text="*{age}"></td>
+            <td th:text="*{gender}"></td>
+            <td th:text="*{grade}"></td>
+        </tr>
+        </tbody>
+    </table>
+    <br>
 
-<a th:href="@{/student/{student_id}(student_id=${student.id})}"
-   class="btn waves-effect waves-dark btn-primary btn-outline-primary">Student Info</a>
-<div id="space"></div>
+    <a th:href="@{/student/{student_id}(student_id=${student.id})}"></a>
+
+    <div id="space"></div>
 </div>
+
+<div class="calender">
+    <ul class="month">
+        <li>
+            <h1>January</h1>
+            <h2>2016</h2>
+        </li>
+        <span class="prev">&#10094;</span>
+        <span class="next">&#10095;</span>
+    </ul>
+    <ul class="weeks">
+        <li>Sa</li>
+        <li>Su</li>
+        <li>Mo</li>
+        <li>Tu</li>
+        <li>We</li>
+        <li>Th</li>
+        <li>Fr</li>
+    </ul>
+    <ul class="days">
+
+    </ul>
+</div>
+<footer>
+    <div class="text-center m-3">
+        <h8> MCopyright &copy; SmartSchoolApp.</h8>
+    </div>
+
+    <pre/>
+</footer>
+<script type="text/javascript" th:src="@{/js/calender.js}"></script>
 </body>
 </html>

@@ -78,7 +78,6 @@ public class StudentController {
         return "students";
     }
 
-
    @GetMapping("/students/new")
     public String createStudentForm(Model model) {
         Student student = new Student();

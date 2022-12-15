@@ -3,7 +3,6 @@ package nadira.com.finalSmartschoolAppProject.entities;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Data
