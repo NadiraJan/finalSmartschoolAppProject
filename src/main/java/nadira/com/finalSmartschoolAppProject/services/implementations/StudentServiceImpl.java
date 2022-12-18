@@ -2,9 +2,14 @@ package nadira.com.finalSmartschoolAppProject.services.implementations;
 
 import nadira.com.finalSmartschoolAppProject.entities.ClassTeacher;
 import nadira.com.finalSmartschoolAppProject.entities.Student;
+import nadira.com.finalSmartschoolAppProject.entities.User;
 import nadira.com.finalSmartschoolAppProject.repositories.StudentRepository;
 import nadira.com.finalSmartschoolAppProject.services.interfaces.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.security.core.userdetails.UserDetails;
+//import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -46,6 +51,14 @@ public class StudentServiceImpl implements StudentService {
     public Student getByEmailAndPassword(String email, String password) {
         return studentRepository.findByEmailAndPassword(email, password);
     }
+
+    @Override
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+
+       return null;
+    }
+
+
 
 
 }

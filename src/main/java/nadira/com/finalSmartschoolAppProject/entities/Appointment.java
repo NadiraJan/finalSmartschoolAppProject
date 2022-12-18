@@ -24,8 +24,8 @@ public class Appointment {
     private String booked;
 
     @ManyToOne
-    @JoinColumn(name = "parent_id")
-    private Parent parent;
+    @JoinColumn(name = "parent_id")*/
+ /*   private Parent parent;
 
 
 

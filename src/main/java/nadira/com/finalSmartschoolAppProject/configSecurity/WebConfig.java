@@ -7,22 +7,21 @@ import org.springframework.web.servlet.config.annotation.ContentNegotiationConfi
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-/*import java.nio.charset.Charset;
+import java.nio.charset.Charset;
 import java.util.List;
 
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
 
     @Override
-    public void addViewControllers(ViewControllerRegistry registry)
-    {
+    public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/").setViewName("login");
         registry.addViewController("/login").setViewName("login");
         registry.addViewController("/login/postLogin").setViewName("parent_home");
         registry.addViewController("/login/postLogin").setViewName("student_home");
-        //registry.addViewController("/home").setViewName("userhome");
         registry.addViewController("/getParentPage").setViewName("parent_home");
         registry.addViewController("/getStudentPage").setViewName("student_home");
+        registry.addViewController("/getClassTeacherPage").setViewName("classteacher_home");
         registry.addViewController("/classTeacher/students").setViewName("students");
         registry.addViewController("/classTeacher/results").setViewName("results");
         registry.addViewController("/classTeacher/parents").setViewName("parents");
@@ -40,5 +39,5 @@ public class WebConfig implements WebMvcConfigurer {
         configurer.favorPathExtension(false);
     }
 
-}*/
+}
 

@@ -1,10 +1,11 @@
 package nadira.com.finalSmartschoolAppProject.services.interfaces;
 
 import nadira.com.finalSmartschoolAppProject.entities.Student;
+import org.springframework.security.core.userdetails.UserDetailsService;
 
 import java.util.List;
 
-public interface StudentService {
+public interface StudentService extends UserDetailsService{
 
     List<Student> getAllStudents();
 

@@ -5,6 +5,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 
 @Setter
@@ -19,6 +21,8 @@ public abstract class User {
     private String lastName;
     private String email;
     private String password;
+
+
 
 
 }

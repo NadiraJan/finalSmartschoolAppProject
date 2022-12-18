@@ -39,10 +39,10 @@ public class AppointmentController {
             appointmentService.save(appointment1);
             return ResponseEntity.ok(new Response("Appointment was saved successfully!"));
         }
-        return ResponseEntity.ok(new Response("Appointment was taken try another date"));
-    }
+        return ResponseEntity.ok(new Response("Appointment was taken try another date"));*/
 
-    @GetMapping("/appointments")
+
+  /*  @GetMapping("/appointments")
     public String listStudents(Model model) {
         model.addAttribute("appointments", appointmentService.getAll());
         return "appoint";
