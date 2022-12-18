@@ -57,7 +57,7 @@ public class ResultsController {
             return "create_results";
         } else if (user2 instanceof Student) {
             model.addAttribute("results", results);
-            System.err.println("Current User has no permissions to ADD anything on results by id: "); // for testing debugging purposes
+            System.err.println("Current User has no permissions to ADD anything on results by id: ");
             return "error";
 
         } else {
@@ -81,7 +81,7 @@ public class ResultsController {
         return "edit_results";
     } else if(user2 instanceof Student){
             model.addAttribute("results", resultsService.getAllResults());
-            System.err.println("Current User has no permissions to EDIT anything on results by id: "); // for testing debugging purposes
+            System.err.println("Current User has no permissions to EDIT anything on results by id: ");
             return "error";
 
         } else {
@@ -113,7 +113,7 @@ public class ResultsController {
             return "redirect:/results";
         }else if(user instanceof Student){
             resultsService.deleteResultsById(id);
-            System.err.println("Current User has no permissions to DELETE anything on results by id: "); // for testing debugging purposes
+            System.err.println("Current User has no permissions to DELETE anything on results by id: ");
             return "error";
 
         } else {
