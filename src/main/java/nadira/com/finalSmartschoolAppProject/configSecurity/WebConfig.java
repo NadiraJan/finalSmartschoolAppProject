@@ -25,7 +25,7 @@ public class WebConfig implements WebMvcConfigurer {
         registry.addViewController("/classTeacher/students").setViewName("students");
         registry.addViewController("/classTeacher/results").setViewName("results");
         registry.addViewController("/classTeacher/parents").setViewName("parents");
-        //registry.addViewController("/403").setViewName("403");
+        // registry.addViewController("/403").setViewName("403");
     }
 
     @Override

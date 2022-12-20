@@ -18,5 +18,6 @@ public interface ClassTeacherService {
     ClassTeacher getClassTeacherByEmailAndPassword(String email, String password);
 
 
+
     void deleteById(Long id);
 }

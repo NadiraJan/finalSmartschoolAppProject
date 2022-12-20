@@ -1,11 +1,15 @@
 insert into classTeacher(id,firstName, lastName,email, password,phoneNumber,myWorkingDays,parentsContact)values(1,'Liz','Trass','lizztrass@gmail.com','Passpass_12', 0499423397,'Mon-Tue-Thu-Fr','Every 3 months');
 
+CREATE SEQUENCE mySequence MINVALUE 1 START WITH 1 INCREMENT BY 1 CACHE 20 NOMAXVALUE;
+/*CREATE SEQUENCE mySequence START WITH 1 INCREMENT BY 1 NOCACHE NOCYCLE;*/
 
-insert into student (id,firstName,lastName,email, password,age,gender,grade,classTeacher_id)values(1,'Jens','Kwak','jens@mail.com','password',13,'Boy','2AC',1);
-insert into student (id,firstName,lastName,email, password,age,gender,grade,classTeacher_id)values(2,'Valerie','Smith','smith@net.com','pass',13,'Girl','2AC',1);
-insert into student (id,firstName,lastName,email, password,age,gender,grade,classTeacher_id)values(3,'Elise','Buynder','elise@yahoo.com','pass',12,'Girl','2AC',1);
-insert into student (id,firstName,lastName,email, password,age,gender,grade,classTeacher_id)values(4,'Jan','Lemberg','jan@mail.be','1234',13,'Boy','2AC',1);
-insert into student (id,firstName,lastName,email, password,age,gender,grade,classTeacher_id)values(5,'Bob','Claus','bob@hotmail.com','password',13,'Boy','2AC',1);
+insert into student (id,firstName,lastName,email, password,age,gender,grade,classTeacher_id)values(nextval('mySequence'),'Jens','Kwak','jens@mail.com','password',13,'Boy','2AC',1);
+insert into student (id,firstName,lastName,email, password,age,gender,grade,classTeacher_id)values(nextval('mySequence'),'Valerie','Smith','smith@net.com','pass',13,'Girl','2AC',1);
+insert into student (id,firstName,lastName,email, password,age,gender,grade,classTeacher_id)values(nextval('mySequence'),'Elise','Buynder','elise@yahoo.com','pass',12,'Girl','2AC',1);
+insert into student (id,firstName,lastName,email, password,age,gender,grade,classTeacher_id)values(nextval('mySequence'),'Jan','Lemberg','jan@mail.be','1234',13,'Boy','2AC',1);
+insert into student (id,firstName,lastName,email, password,age,gender,grade,classTeacher_id)values(nextval('mySequence'),'Bob','Claus','bob@hotmail.com','password',13,'Boy','2AC',1);
+alter sequence mySequence RESTART WITH 6;
+alter sequence userSequence RESTART WITH 6;
 
 
 insert into results (id,maxPoint,subjects,remarks,student_id) values (1,60.0,'HISTORY','fair',1);

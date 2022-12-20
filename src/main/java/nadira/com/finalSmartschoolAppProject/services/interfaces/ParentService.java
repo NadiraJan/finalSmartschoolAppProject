@@ -16,5 +16,8 @@ public interface ParentService {
 
     List<Parent> getParentByStudent(Student student);
 
+    Parent addParent(Parent parent);
+
+    Parent saveParent(Parent parent);
 }
 

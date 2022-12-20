@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
@@ -18,6 +19,8 @@ public class RegisterController {
 
 @Autowired
   private StudentService studentService;
+  @Autowired
+  private ClassTeacherService classTeacherService;
 
 
     @GetMapping("/register")
@@ -29,9 +32,13 @@ public class RegisterController {
     }
 
     @PostMapping("/register")
-    public String registerNewStudent(Student student) {
+    public String registerNewStudent(Student student, @ModelAttribute("classTeacher_id")Long id)  {
+      System.out.println(id);
+      ClassTeacher classTeacher = classTeacherService.getClassTeacherById(id);
+     // System.out.println(classTeacher.getFirstName() + "NADIRA");
+      student.setClassTeacher(classTeacher);
+      studentService.saveStudent(student);
 
-        studentService.saveStudent(student);
         return "redirect:/";
 
     }

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Management System</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+
+        <h3>List Of Parents</h3>
+    </div>
+
+    <table class="table table-striped table-bordered">
+        <thead class="table-light">
+        <form th:action="@{/parents}" th:object="${parent}" method="post">
+
+            <div class="form-group">
+                <label>FirstName</label>
+                <input
+                        type="text"
+                        name="firstName"
+                        th:field="*{firstName}"
+                        class="form-control"
+                        placeholder="Enter First Name"/>
+
+            </div>
+            <div class="form-group">
+                <label>Last Name</label>
+                <input
+                        type="text"
+                        name="lastName"
+                        th:field="*{lastName}"
+                        class="form-control"
+                        placeholder="Last Name"/>
+
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input
+                        type="text"
+                        name="email"
+                        th:field="*{email}"
+                        class="form-control"
+                        placeholder="Enter Email"/>
+
+            </div>
+            <div class="form-group">
+                <label>Relation</label>
+                <input
+                        type="text"
+                        name="relation"
+                        th:field="*{relation}"
+                        class="form-control"
+                        placeholder="Enter Relationship"/>
+
+            </div>
+
+            <div class="form-group">
+                <label>Which Student's Parent(Student_ID)</label>
+                <input
+                        type="text"
+                        name="student.id"
+                        th:field="*{student.id}"
+                        class="form-control"
+                        placeholder="Enter StudentID"/>
+
+            </div>
+
+
+            <div class="box-footer">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+        </thead>
+    </table>
+</div>
+</div>
+</body>
+</html>

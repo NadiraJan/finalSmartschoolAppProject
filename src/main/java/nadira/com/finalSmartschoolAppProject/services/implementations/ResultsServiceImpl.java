@@ -33,7 +33,7 @@ public class ResultsServiceImpl implements ResultsService {
 
     @Override
     public void deleteResultsById(Long id) {
-        resultsRepository.deleteById(id);
+           resultsRepository.deleteById(id);
     }
 
     @Override

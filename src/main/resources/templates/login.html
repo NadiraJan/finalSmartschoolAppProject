@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sf="http://www.w3.org/1999/xhtml" lang="en">
 
 <title>Registration and Login App</title>
 <link rel="stylesheet"
@@ -8,28 +8,29 @@
       crossorigin="anonymous">
 <link th:href="@{/css/login.css}" rel="stylesheet" type="text/css">
 
-
-
 </head>
+
 <body>
 <div class="container">
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
 
-
             <form th:action="@{/login/postLogin}" method="post">
                 <div class="mb-4 text-center">
-                    <h1> School management</h1>
+                    <h1 class="h3" style="color:#032cfc;"> School management</h1>
                 </div>
-              <a onclick="history.back(-1)" class="link-button link-back-button">Go Back</a>
+                <a href="/">Go Back</a>
 
                 <!-- error message -->
-                <div th:if="${param.error}">
-                    <div class="alert alert-danger">Invalid username or password.</div>
-                </div>
+              <div th:if="${param.error}">
+          <div class="alert alert-danger">Invalid username or
+              password.
+          </div>
+      </div>
+
                 <!-- logout message -->
                 <div th:if="${param.logout}">
-                    <div class="alert alert-info">You have been logged out.</div>
+                    <div class="alert alert-info">You have been logged out</div>
                 </div>
 
 
@@ -38,11 +39,13 @@
                     <input type="text" class="form-control" id="email" name="email"
                            placeholder="email" autofocus="autofocus">
                 </div>
+
                 <div class="form-group">
                     <label for="password">password</label>
                     <input type="password" name="password" class="form-control"
                            placeholder="Enter password"/>
                 </div>
+
                 <div class="form-group">
                     <laber for="role">sign-In As</laber>
                     <select name="role" id="role" class="form-control">
@@ -65,6 +68,7 @@
         </div>
     </div>
 </div>
+
 
 </body>
 </html>

@@ -10,24 +10,29 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
 import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 import javax.sql.DataSource;
+import java.util.HashMap;
+import java.util.Map;
 
 @Configuration
 @EnableWebSecurity
-public class WebSecConfig extends WebSecurityConfigurerAdapter {
+public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Autowired
     @Lazy
     private StudentService userService;
 
     @Bean
     public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
+        PasswordEncoder encoder = new BCryptPasswordEncoder(20);
+        return encoder;
     }
+
 
 
     @Autowired
@@ -42,9 +47,6 @@ public class WebSecConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
 
         http.authorizeRequests().antMatchers(
-
-
-
 
                         "/register**",
                         "/h2-console/**",
@@ -80,57 +82,26 @@ public class WebSecConfig extends WebSecurityConfigurerAdapter {
                 .logoutSuccessUrl("/login?logout")
                 .permitAll();
 
+        //for h2-controle access:
         http.csrf().disable();
         http.headers().frameOptions().disable();
 
-
-  }
+    }
 
     PersistentTokenRepository persistentTokenRepository() {
         JdbcTokenRepositoryImpl tokenRepositoryImpl = new JdbcTokenRepositoryImpl();
         tokenRepositoryImpl.setDataSource(dataSource);
         return tokenRepositoryImpl;
-    }    }
-
-
-
-
-     /*auth.inMemoryAuthentication()
-                .withUser("student")
-                .password("pass")
-                .roles("USER")
-                .and()
-                .withUser("parent")
-                .password("pass")
-                .roles("USER")
-                .and()
-                .withUser("classTeacher")
-                .password("pass")
-                .roles("ADMIN");
-
-
 
     }
-    @Override
-    protected void configure(HttpSecurity http) throws Exception{
-
-        http.authorizeRequests()
-        .antMatchers("/classTeacher").hasRole("ADMIN")
-        .antMatchers("/students").hasRole("ADMIN")
-        .antMatchers("/results").hasRole("ADMIN")
-        .antMatchers("/parents").hasRole("ADMIN")
-        .antMatchers("/user").hasAnyRole("USER","ADMIN")
-        .antMatchers("/").permitAll()
-        .and().formLogin();
 
 
-        }
-
-    @Bean
-    public PasswordEncoder encoder(){
-        return NoOpPasswordEncoder.getInstance();
-    }
+}
 
 
-}*/
+
+
+
+
+
 

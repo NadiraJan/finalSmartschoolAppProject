@@ -36,5 +36,15 @@ public class ParentServiceImpl implements ParentService {
         return parentRepository.findByStudent(student);
     }
 
+    @Override
+    public Parent addParent(Parent parent) {
+        return parentRepository.save(parent);
+    }
+
+    @Override
+    public Parent saveParent(Parent parent) {
+        return parentRepository.save(parent);
+    }
+
 
 }

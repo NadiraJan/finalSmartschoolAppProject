@@ -26,37 +26,45 @@ public class ResultsController {
     private StudentService studentService;
 
 
-  /*  @GetMapping("/results")
+ /*@GetMapping("/results")
     public String listResults(Model model) {
         model.addAttribute("results", resultsService.getAllResults());
         return "results";
     }*/
+ @GetMapping("/results")
+ public String listResults(Model model, HttpSession httpSession) {
+     Object user = httpSession.getAttribute("student");
+     Object user2 = httpSession.getAttribute("classTeacher");
+     Object user3 = httpSession.getAttribute("parent");
+     if (user instanceof Student || user3 instanceof Parent) {
+         model.addAttribute("results",
+                 resultsService.getResultsByStudent(((Student) user)));
+     } else if (user2 instanceof ClassTeacher) {
 
-    @GetMapping("/results")
-    public String listResults(Model model, HttpSession httpSession) {
-        Object user = httpSession.getAttribute("student");
-    Object user2 = httpSession.getAttribute("classTeacher");
-        if (user instanceof Student) {
-            model.addAttribute("results",
-                    resultsService.getResultsByStudent(((Student) user)));
-        } else if (user2 instanceof ClassTeacher) {
+         model.addAttribute("results", resultsService.getAllResults());
+     }
+     return "results";
+ }
 
-            model.addAttribute("results", resultsService.getAllResults());
-        }
-        return "results";
+
+
+    @PostMapping("/results")
+    public String saveResults(@ModelAttribute("results") Results results) {
+        resultsService.saveResults(results);
+        return "redirect:/results";
     }
 
     @GetMapping("/results/new")
-    public String createResultsForm(Model model,HttpSession session) {
-        Object user = session.getAttribute("classTeacher");
-        Object user2 = session.getAttribute("student");
+    public String createResultsForm(Model model, HttpSession session) {
+        Object user = session.getAttribute("student");
+        Object user2 = session.getAttribute("classTeacher");
 
         Results results = new Results();
-        if (user instanceof ClassTeacher) {
+        if (user2 instanceof ClassTeacher) {
             model.addAttribute("results", results);
             return "create_results";
         } else if (user2 instanceof Student) {
-            model.addAttribute("results", results);
+
             System.err.println("Current User has no permissions to ADD anything on results by id: ");
             return "error";
 
@@ -66,30 +74,12 @@ public class ResultsController {
         }
 
     }
-    @PostMapping("/results")
-    public String saveResults(@ModelAttribute("results") Results results) {
-        resultsService.saveResults(results);
-        return "redirect:/results";
-    }
 
-    @GetMapping("/results/edit/{id}")
-    public String editResultsForm(@PathVariable Long id, Model model,HttpSession session) {
-        Object user = session.getAttribute("classTeacher");
-        Object user2 = session.getAttribute("student");
-        if(user instanceof ClassTeacher){
+ /*   @GetMapping("/results/edit/{id}")
+    public String editResultsForm(@PathVariable Long id, Model model) {
         model.addAttribute("results", resultsService.getResultsById(id));
         return "edit_results";
-    } else if(user2 instanceof Student){
-            model.addAttribute("results", resultsService.getAllResults());
-            System.err.println("Current User has no permissions to EDIT anything on results by id: ");
-            return "error";
-
-        } else {
-            return "error";
-
-        }
-
-    }
+    }*/
 
     @PostMapping("/results/{id}")
     public String updateResults(@PathVariable Long id,
@@ -103,15 +93,53 @@ public class ResultsController {
         return "redirect:/results";
     }
 
-    @GetMapping("/results/{id}")
-    public String deleteResults(@PathVariable Long id,HttpSession session) {
+ /*   @GetMapping("/results/new")
+    public String createResultsForm(Model model) {
+        Results results = new Results();
+        model.addAttribute("results", results);
+        return "create_results";
+    }*/
+
+
+ /*@GetMapping("/results/{id}")
+    public String deleteResults(@PathVariable Long id) {
+        resultsService.deleteResultsById(id);
+        System.out.println(id + "nadira");
+        return "redirect:/results";
+
+    }*/
+
+
+
+   @GetMapping("/results/edit/{id}")
+    public String editResultsForm(@PathVariable Long id, Model model, HttpSession session) {
         Object user = session.getAttribute("classTeacher");
         Object user2 = session.getAttribute("student");
-        if(user instanceof ClassTeacher) {
+
+        if (user instanceof ClassTeacher) {
+            model.addAttribute("results", resultsService.getResultsById(id));
+            return "edit_results";
+        } else if (user2 instanceof Student) {
+            model.addAttribute("results", resultsService.getAllResults());
+            System.err.println("Current User has no permissions to EDIT anything on results by id: ");
+            return "error";
+
+        } else {
+            return "error";
+
+        }
+
+    }
+
+ @GetMapping("/results/{id}")
+    public String deleteResults(@PathVariable Long id, HttpSession session) {
+        Object user = session.getAttribute("classTeacher");
+        Object user2 = session.getAttribute("student");
+        if (user instanceof ClassTeacher) {
 
             resultsService.deleteResultsById(id);
             return "redirect:/results";
-        }else if(user instanceof Student){
+        } else if (user2 instanceof Student) {
             resultsService.deleteResultsById(id);
             System.err.println("Current User has no permissions to DELETE anything on results by id: ");
             return "error";
@@ -123,7 +151,7 @@ public class ResultsController {
 
     }
 
-        }
+}
 
 
 

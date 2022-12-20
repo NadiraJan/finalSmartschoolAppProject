@@ -8,7 +8,7 @@ import javax.persistence.*;
 @Data
 public class Parent extends User {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
     private String relation;
 

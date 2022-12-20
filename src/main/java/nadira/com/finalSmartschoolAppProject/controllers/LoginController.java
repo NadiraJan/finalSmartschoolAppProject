@@ -72,7 +72,7 @@ public class LoginController {
                 }
             }
         }
-        return "redirect:/login/getLogin";
+        return "redirect:/login?error";
     }
 
 
@@ -80,7 +80,7 @@ public class LoginController {
     public String logout(HttpSession session) {
         session.setAttribute("loginDto", null);
         session.invalidate();
-        return "redirect:/login/getLogin";
+        return "redirect:/login";
     }
 
     @GetMapping("/Authorization")

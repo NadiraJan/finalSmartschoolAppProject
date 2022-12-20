@@ -24,8 +24,8 @@ import java.util.List;
 public class ClassTeacherController {
 
 
-   /* @Autowired
-    private StudentInfoService studentInfoService;*/
+    /* @Autowired
+     private StudentInfoService studentInfoService;*/
     @Autowired
     private ClassTeacherService classTeacherService;
     @Autowired
@@ -43,9 +43,10 @@ public class ClassTeacherController {
             model.addAttribute("classTeacher", classTeacher);
             return "classteacher_home";
         } else {
-            return "redirect:/login";
+            return "redirect:/login/Authorization";
         }
     }
+
 
 
   /*  @GetMapping("/classTeacher")
@@ -73,19 +74,18 @@ public class ClassTeacherController {
     }*/
 
 
-  @GetMapping("/logout")
+    @GetMapping("/logout")
     public String logout(HttpSession session) {
-        session.setAttribute("loginDto",null);
+        session.setAttribute("loginDto", null);
         session.invalidate();
         return "redirect:/login/getLogin";
     }
 
 
-
-
-
-
 }
+
+
+
 
 
 

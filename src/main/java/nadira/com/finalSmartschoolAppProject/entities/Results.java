@@ -20,15 +20,5 @@ public class Results {
     @JoinColumn(name = "student_id", referencedColumnName = "id")
     private Student student;
 
-    public Results(double maxPoint, Subjects subjects, String remarks, Student student) {
-        this.maxPoint = maxPoint;
-        this.subjects = subjects;
-        this.remarks = remarks;
-        this.student = student;
-    }
 
-
-    public Results() {
-
-    }
 }

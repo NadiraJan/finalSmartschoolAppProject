@@ -4,9 +4,8 @@ import nadira.com.finalSmartschoolAppProject.entities.ClassTeacher;
 import nadira.com.finalSmartschoolAppProject.entities.Parent;
 import nadira.com.finalSmartschoolAppProject.entities.Results;
 import nadira.com.finalSmartschoolAppProject.entities.Student;
-//import nadira.com.finalSmartschoolAppProject.entities.StudentInfo;
-//import nadira.com.finalSmartschoolAppProject.services.interfaces.ResultsService;
-//import nadira.com.finalSmartschoolAppProject.services.interfaces.StudentInfoService;
+
+import nadira.com.finalSmartschoolAppProject.services.interfaces.ClassTeacherService;
 import nadira.com.finalSmartschoolAppProject.services.interfaces.ParentService;
 import nadira.com.finalSmartschoolAppProject.services.interfaces.ResultsService;
 import nadira.com.finalSmartschoolAppProject.services.interfaces.StudentService;
@@ -28,67 +27,59 @@ import java.util.List;
 public class StudentController {
     @Autowired
     private StudentService studentService;
-  //  @Autowired
-    //private StudentInfoService studentInfoService;
+
     @Autowired
     private ResultsService resultsService;
     private Student student;
     @Autowired
     private ParentService parentService;
+    @Autowired
+    private ClassTeacherService classTeacherService;
 
 
     @GetMapping("/getStudentPage")
-    public String getStudent(Model model, HttpServletRequest request, HttpServletResponse response){
+    public String getStudent(Model model, HttpServletRequest request, HttpServletResponse response) {
         Student studentSession = (Student) request.getSession().getAttribute("student");
-        if(studentSession !=null){
-            String name= studentSession.getEmail() + "/" + studentSession.getPassword();
+        if (studentSession != null) {
+            String name = studentSession.getEmail() + "/" + studentSession.getPassword();
             Student student = studentService.getStudentById(studentSession.getId());
             model.addAttribute("student", student);
             return "student_home";
         } else {
-            return "redirect:/login";
+            return "redirect:/login/Authorization";
         }
     }
-
- /*   @GetMapping("/getStudentInfoPage/{student_id}")
-    public String getStudentInfo(@PathVariable("student_id") Long student_id, Model model,HttpServletRequest request) {
-        Student studentSession = (Student) request.getSession().getAttribute("student");
-        if (studentSession != null) {
-            if (student_id == studentSession.getId()) {
-                Student student = studentService.getStudentById(studentSession.getId());
-                List<StudentInfo> studentInfo = studentInfoService.getStudentInfoByStudentId(studentSession.getId());
-                model.addAttribute("studentInfo", studentInfo);
-                return "studentInfo_home";
-            }
-            return "redirect:/student/getStudentPage";
-        } else {
-            return "redirect:/login";
-        }
-
-    }*/
 
     @GetMapping("/students")
-    public String listStudents(Model model,HttpSession session) {
+    public String listStudents(Model model, HttpSession session) {
 
         Object user = session.getAttribute("classTeacher");
+        if (user instanceof ClassTeacher) {
+        model.addAttribute("students", studentService.getAllStudents());
 
-       if (user instanceof ClassTeacher) {
-            model.addAttribute("students", studentService.getAllStudents());
-        }
         return "students";
     }
+       return "error";
+    }
 
-   @GetMapping("/students/new")
+
+    @GetMapping("/students/new")
     public String createStudentForm(Model model) {
         Student student = new Student();
+
         model.addAttribute("student", student);
         return "create_student";
 
     }
 
     @PostMapping("/students")
-    public String saveStudent(@ModelAttribute("student") Student student) {
+    public String saveStudent(@ModelAttribute("student") Student student, @ModelAttribute("classTeacher_id") Long id) {
+        System.out.println(id);
+        ClassTeacher classTeacher = classTeacherService.getClassTeacherById(id);
+        System.out.println(classTeacher.getFirstName());// + "NADIRA");
+        student.setClassTeacher(classTeacher);
         studentService.saveStudent(student);
+
         return "redirect:/students";
 
     }
@@ -115,7 +106,6 @@ public class StudentController {
         existingStudent.setGrade(student.getGender());
         existingStudent.setGrade(student.getGrade());
         existingStudent.setClassTeacher(student.getClassTeacher());
-
         studentService.updateStudent(existingStudent);
         return "redirect:/students";
 
@@ -127,16 +117,4 @@ public class StudentController {
         return "redirect:/students";
 
     }
-
-
-
-
-
 }
-
-
-
-
-
-
-

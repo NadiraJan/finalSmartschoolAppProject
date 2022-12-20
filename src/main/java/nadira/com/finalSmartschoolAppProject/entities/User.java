@@ -5,8 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
+
 
 
 @Setter
@@ -15,7 +14,10 @@ import java.util.Set;
 @MappedSuperclass
 public abstract class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @SequenceGenerator(name="sequence",sequenceName = "userSequence")
+            @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequence")
+
+
     private Long id;
     private String firstName;
     private String lastName;
@@ -23,6 +25,10 @@ public abstract class User {
     private String password;
 
 
-
-
+    public User(String firstName, String lastName, String email, String password) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.password = password;
+    }
 }
