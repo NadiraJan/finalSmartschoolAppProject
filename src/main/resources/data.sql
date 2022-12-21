@@ -10,6 +10,8 @@ insert into student (id,firstName,lastName,email, password,age,gender,grade,clas
 insert into student (id,firstName,lastName,email, password,age,gender,grade,classTeacher_id)values(nextval('mySequence'),'Bob','Claus','bob@hotmail.com','password',13,'Boy','2AC',1);
 alter sequence mySequence RESTART WITH 6;
 alter sequence userSequence RESTART WITH 6;
+alter sequence userSequence increment by 1;
+
 
 
 insert into results (id,maxPoint,subjects,remarks,student_id) values (1,60.0,'HISTORY','fair',1);

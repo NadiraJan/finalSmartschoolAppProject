@@ -36,13 +36,19 @@ public class ResultsController {
      Object user = httpSession.getAttribute("student");
      Object user2 = httpSession.getAttribute("classTeacher");
      Object user3 = httpSession.getAttribute("parent");
-     if (user instanceof Student || user3 instanceof Parent) {
+     if (user instanceof Student) {
          model.addAttribute("results",
                  resultsService.getResultsByStudent(((Student) user)));
      } else if (user2 instanceof ClassTeacher) {
 
          model.addAttribute("results", resultsService.getAllResults());
+     } else if(user3 instanceof Parent){
+Student student = ((Parent) user3).getStudent();
+
+         model.addAttribute("results",
+                 resultsService.getResultsByStudent(student));
      }
+
      return "results";
  }
 
