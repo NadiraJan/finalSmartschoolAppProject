@@ -31,27 +31,27 @@ public class ResultsController {
         model.addAttribute("results", resultsService.getAllResults());
         return "results";
     }*/
- @GetMapping("/results")
- public String listResults(Model model, HttpSession httpSession) {
-     Object user = httpSession.getAttribute("student");
-     Object user2 = httpSession.getAttribute("classTeacher");
-     Object user3 = httpSession.getAttribute("parent");
-     if (user instanceof Student) {
-         model.addAttribute("results",
-                 resultsService.getResultsByStudent(((Student) user)));
-     } else if (user2 instanceof ClassTeacher) {
 
-         model.addAttribute("results", resultsService.getAllResults());
-     } else if(user3 instanceof Parent){
-Student student = ((Parent) user3).getStudent();
+    @GetMapping("/results")
+    public String listResults(Model model, HttpSession httpSession) {
+        Object user = httpSession.getAttribute("student");
+        Object user2 = httpSession.getAttribute("classTeacher");
+        Object user3 = httpSession.getAttribute("parent");
+        if (user instanceof Student) {
+            model.addAttribute("results",
+                    resultsService.getResultsByStudent(((Student) user)));
+        } else if (user2 instanceof ClassTeacher) {
 
-         model.addAttribute("results",
-                 resultsService.getResultsByStudent(student));
-     }
+            model.addAttribute("results", resultsService.getAllResults());
+        } else if (user3 instanceof Parent) {
+            Student student = ((Parent) user3).getStudent();
 
-     return "results";
- }
+            model.addAttribute("results",
+                    resultsService.getResultsByStudent(student));
+        }
 
+        return "results";
+    }
 
 
     @PostMapping("/results")
@@ -62,22 +62,22 @@ Student student = ((Parent) user3).getStudent();
 
     @GetMapping("/results/new")
     public String createResultsForm(Model model, HttpSession session) {
-        Object user = session.getAttribute("student");
-        Object user2 = session.getAttribute("classTeacher");
+        Object user = session.getAttribute("classTeacher");
+        Object user2 = session.getAttribute("student");
 
         Results results = new Results();
-        if (user2 instanceof ClassTeacher) {
+        if (user instanceof ClassTeacher) {
             model.addAttribute("results", results);
             return "create_results";
+
         } else if (user2 instanceof Student) {
 
             System.err.println("Current User has no permissions to ADD anything on results by id: ");
             return "error";
 
-        } else {
-            return "error";
 
         }
+        return "error";
 
     }
 
@@ -99,7 +99,7 @@ Student student = ((Parent) user3).getStudent();
         return "redirect:/results";
     }
 
- /*   @GetMapping("/results/new")
+  /*@GetMapping("/results/new")
     public String createResultsForm(Model model) {
         Results results = new Results();
         model.addAttribute("results", results);
@@ -116,8 +116,7 @@ Student student = ((Parent) user3).getStudent();
     }*/
 
 
-
-   @GetMapping("/results/edit/{id}")
+    @GetMapping("/results/edit/{id}")
     public String editResultsForm(@PathVariable Long id, Model model, HttpSession session) {
         Object user = session.getAttribute("classTeacher");
         Object user2 = session.getAttribute("student");
@@ -127,7 +126,7 @@ Student student = ((Parent) user3).getStudent();
             return "edit_results";
         } else if (user2 instanceof Student) {
             model.addAttribute("results", resultsService.getAllResults());
-            System.err.println("Current User has no permissions to EDIT anything on results by id: ");
+            System.err.println("Current User has no permissions");
             return "error";
 
         } else {
@@ -137,7 +136,7 @@ Student student = ((Parent) user3).getStudent();
 
     }
 
- @GetMapping("/results/{id}")
+    @GetMapping("/results/{id}")
     public String deleteResults(@PathVariable Long id, HttpSession session) {
         Object user = session.getAttribute("classTeacher");
         Object user2 = session.getAttribute("student");
@@ -146,7 +145,7 @@ Student student = ((Parent) user3).getStudent();
             resultsService.deleteResultsById(id);
             return "redirect:/results";
         } else if (user2 instanceof Student) {
-            resultsService.deleteResultsById(id);
+//            resultsService.deleteResultsById(id);
             System.err.println("Current User has no permissions to DELETE anything on results by id: ");
             return "error";
 

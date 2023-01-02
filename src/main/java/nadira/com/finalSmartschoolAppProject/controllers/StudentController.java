@@ -2,14 +2,12 @@ package nadira.com.finalSmartschoolAppProject.controllers;
 
 import nadira.com.finalSmartschoolAppProject.entities.ClassTeacher;
 import nadira.com.finalSmartschoolAppProject.entities.Parent;
-import nadira.com.finalSmartschoolAppProject.entities.Results;
 import nadira.com.finalSmartschoolAppProject.entities.Student;
 
 import nadira.com.finalSmartschoolAppProject.services.interfaces.ClassTeacherService;
 import nadira.com.finalSmartschoolAppProject.services.interfaces.ParentService;
 import nadira.com.finalSmartschoolAppProject.services.interfaces.ResultsService;
 import nadira.com.finalSmartschoolAppProject.services.interfaces.StudentService;
-import org.apache.catalina.filters.ExpiresFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,7 +19,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.util.List;
+
 
 @Controller
 public class StudentController {
@@ -54,22 +52,29 @@ public class StudentController {
     public String listStudents(Model model, HttpSession session) {
 
         Object user = session.getAttribute("classTeacher");
+        Object user2 = session.getAttribute("parent");
         if (user instanceof ClassTeacher) {
-        model.addAttribute("students", studentService.getAllStudents());
+            model.addAttribute("students", studentService.getAllStudents());
+
+            return "students";
+        } else if (user2 instanceof Parent) {
+            Student student = ((Parent) user2).getStudent();
+            model.addAttribute("students", studentService.getStudentById(student.getId()));
+        }
 
         return "students";
     }
-       return "error";
-    }
-
 
     @GetMapping("/students/new")
-    public String createStudentForm(Model model) {
+    public String createStudentForm(Model model, HttpSession session) {
+        Object user = session.getAttribute("classTeacher");
         Student student = new Student();
+        if (user instanceof ClassTeacher) {
+            model.addAttribute("student", student);
+            return "create_student";
 
-        model.addAttribute("student", student);
-        return "create_student";
-
+        }
+        return "error";
     }
 
     @PostMapping("/students")
@@ -81,14 +86,24 @@ public class StudentController {
         studentService.saveStudent(student);
 
         return "redirect:/students";
-
     }
 
     @GetMapping("/students/edit/{id}")
-    public String editStudentForm(@PathVariable Long id, Model model) {
-        model.addAttribute("student", studentService.getStudentById(id));
-        return "edit_student";
+    public String editStudentForm(@PathVariable Long id, Model model, HttpSession session) {
+        Object user = session.getAttribute("classTeacher");
+        Object user2 = session.getAttribute("parent");
 
+        if (user instanceof ClassTeacher) {
+            model.addAttribute("student", studentService.getStudentById(id));
+            return "edit_student";
+        } else if (user2 instanceof Parent) {
+            model.addAttribute("student", studentService.getAllStudents());
+            System.err.println("Current User has no permissions");
+            return "error";
+
+        } else {
+            return "error";
+        }
 
     }
 
@@ -103,7 +118,7 @@ public class StudentController {
         existingStudent.setEmail(student.getEmail());
         existingStudent.setPassword(student.getPassword());
         existingStudent.setAge(student.getAge());
-        existingStudent.setGrade(student.getGender());
+        existingStudent.setGender(student.getGender());
         existingStudent.setGrade(student.getGrade());
         existingStudent.setClassTeacher(student.getClassTeacher());
         studentService.updateStudent(existingStudent);

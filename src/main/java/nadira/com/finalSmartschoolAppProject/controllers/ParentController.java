@@ -44,53 +44,63 @@ public class ParentController {
     }
 
 
-   @GetMapping("/parent/{results}")
-   public String showTestResults(Model model,@PathVariable Long id){
-       Student student = studentService.getStudentById(id);
+    @GetMapping("/parent/{results}")
+    public String showTestResults(Model model, @PathVariable Long id) {
+        Student student = studentService.getStudentById(id);
+        List<Results> resultsList = resultsService.getResultsByStudent(student);
+        model.addAttribute("parent", resultsService.getResultsByStudent(student));
+        return "results";
 
-       List<Results> resultsList = resultsService.getResultsByStudent(student);
-       model.addAttribute("parent",resultsService.getResultsByStudent(student));
+    }
 
-       return "results";
+    @GetMapping("/parent/{students}")
+    public String showStudent(Model model, @PathVariable Long id) {
+        Student student = studentService.getStudentById(id);
+        //  List<Parent>parents = parentService.getParentByStudent(student);
+        model.addAttribute("parent", studentService.getStudentById(id));
+        return "students";
+    }
 
-   }
-   @GetMapping("/parent/{student_id}")
-   public String showStudentById(Model model, @PathVariable()Long id){
-       Student student = studentService.getStudentById(id);
-       model.addAttribute("students", parentService.getParentByStudent(student));
-       return "students";
-   }
+  /*  @GetMapping("/parent/{student_id}")
+    public String showStudentById(Model model, @PathVariable() Long id) {
+        Student student = studentService.getStudentById(id);
+        model.addAttribute("students", parentService.getParentByStudent(student));
+        return "students";
+    }*/
 
 
     @GetMapping("/parents")
     public String listParents(Model model, HttpSession session) {
-        Object member = session.getAttribute("classTeacher");
-        if (member instanceof ClassTeacher) {
+        Object user = session.getAttribute("classTeacher");
+        Object user2 = session.getAttribute("student");
+        if (user instanceof ClassTeacher) {
             model.addAttribute("parents", parentService.getAllParents());
-
+        } else if (user2 instanceof Student) {
+            Parent parent = ((Student) user2).getParent();
+            model.addAttribute("parents", parentService.getParentByStudent(parent.getStudent()));
         }
         return "parents";
-
     }
 
-    @GetMapping("/parent/new")
-    public String createParentForm(Model model){
+    @GetMapping("/parents/new")
+    public String createParentForm(Model model, HttpSession session) {
+        Object user = session.getAttribute("classTeacher");
         Parent parent = new Parent();
-        model.addAttribute("parent",parent);
-        return "create_parent";
+        if (user instanceof ClassTeacher) {
+            model.addAttribute("parent", parent);
+            return "create_parent";
 
+        }
+        return "error";
     }
+
     @PostMapping("/parents")
-    public String saveParent(@ModelAttribute("parent")Parent parent, @ModelAttribute ("student_id")Long id){
+    public String saveParent(@ModelAttribute("parent") Parent parent, @ModelAttribute("student_id") Long id) {
         System.out.println(id);
         Student student = studentService.getStudentById(id);
-
         parent.setStudent(student);
-
         parentService.saveParent(parent);
         return "redirect:/parents";
     }
-
-
 
 }

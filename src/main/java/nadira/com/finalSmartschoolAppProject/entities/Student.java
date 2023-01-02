@@ -15,9 +15,8 @@ public class Student extends User {
 
     @Id
     @SequenceGenerator(name = "sequence", sequenceName = "mySequence",allocationSize=1)
-
-
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequence")
+    @Column(unique = true, updatable = false, nullable = false)
     private Long id;
     private int age;
     private String gender;
