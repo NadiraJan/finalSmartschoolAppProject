@@ -56,7 +56,7 @@ public class ParentController {
     @GetMapping("/parent/{students}")
     public String showStudent(Model model, @PathVariable Long id) {
         Student student = studentService.getStudentById(id);
-        //  List<Parent>parents = parentService.getParentByStudent(student);
+          List<Parent>parents = parentService.getParentByStudent(student);
         model.addAttribute("parent", studentService.getStudentById(id));
         return "students";
     }

@@ -127,9 +127,21 @@ public class StudentController {
     }
 
     @GetMapping("/students/{id}")
-    public String deleteStudent(@PathVariable Long id) {
-        studentService.deleteStudentById(id);
-        return "redirect:/students";
-
+    public String deleteStudent(@PathVariable Long id,Model model,HttpSession session) {
+        Object user = session.getAttribute("classTeacher");
+        Object user2 = session.getAttribute("parent");
+        if (user instanceof ClassTeacher) {
+            studentService.deleteStudentById(id);
+            return "redirect:/students";
+        } else if (user2 instanceof Parent) {
+            System.err.println("Current User has no permissions");
+            return "error";
+        } else {
+            return "error";
+        }
     }
 }
+
+
+
+

@@ -38,7 +38,6 @@ public class RegisterController {
      // System.out.println(classTeacher.getFirstName() + "NADIRA");
       student.setClassTeacher(classTeacher);
       studentService.saveStudent(student);
-
         return "redirect:/";
 
     }

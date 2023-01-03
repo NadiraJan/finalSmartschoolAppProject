@@ -48,13 +48,11 @@
                 <th th:text="${results.student.id}"></th>
 
                 <th>
-                    <a th:href="@{/results/{id}(id=${results.id})}"
-                       class="btn btn-danger"> Delete </a>
-
                     <a th:href="@{/results/edit/{id}(id=${results.id})}"
                        class="btn btn-primary"> Update </a>
 
-
+                    <a th:href="@{/results/{id}(id=${results.id})}"
+                       class="btn btn-danger">Delete</a>
 
 
                 </th>

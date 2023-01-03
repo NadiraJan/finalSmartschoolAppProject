@@ -115,7 +115,6 @@ public class ResultsController {
 
     }*/
 
-
     @GetMapping("/results/edit/{id}")
     public String editResultsForm(@PathVariable Long id, Model model, HttpSession session) {
         Object user = session.getAttribute("classTeacher");
