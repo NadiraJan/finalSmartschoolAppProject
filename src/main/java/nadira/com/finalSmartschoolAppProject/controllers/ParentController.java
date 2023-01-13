@@ -10,15 +10,10 @@ import nadira.com.finalSmartschoolAppProject.services.interfaces.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-
+import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.security.Principal;
 import java.util.List;
 
 @Controller
@@ -85,21 +80,28 @@ public class ParentController {
     @GetMapping("/parents/new")
     public String createParentForm(Model model, HttpSession session) {
         Object user = session.getAttribute("classTeacher");
+        Object user2 = session.getAttribute("student");
         Parent parent = new Parent();
         if (user instanceof ClassTeacher) {
             model.addAttribute("parent", parent);
             return "create_parent";
 
+
+        } else {
+            return "error";
         }
-        return "error";
+
     }
 
     @PostMapping("/parents")
     public String saveParent(@ModelAttribute("parent") Parent parent, @ModelAttribute("student_id") Long id) {
         System.out.println(id);
         Student student = studentService.getStudentById(id);
-        parent.setStudent(student);
-        parentService.saveParent(parent);
+        student.setParent(parent);
+  parent.setStudent(student);
+  parentService.saveParent(parent);
+      /*  parent.setStudent(student);
+        parentService.saveParent(parent);*/
         return "redirect:/parents";
     }
 

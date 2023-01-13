@@ -3,7 +3,6 @@ package nadira.com.finalSmartschoolAppProject.controllers;
 import nadira.com.finalSmartschoolAppProject.entities.ClassTeacher;
 import nadira.com.finalSmartschoolAppProject.entities.Parent;
 import nadira.com.finalSmartschoolAppProject.entities.Student;
-
 import nadira.com.finalSmartschoolAppProject.services.interfaces.ClassTeacherService;
 import nadira.com.finalSmartschoolAppProject.services.interfaces.ParentService;
 import nadira.com.finalSmartschoolAppProject.services.interfaces.ResultsService;
@@ -15,7 +14,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -104,7 +102,6 @@ public class StudentController {
         } else {
             return "error";
         }
-
     }
 
     @PostMapping("/students/{id}")

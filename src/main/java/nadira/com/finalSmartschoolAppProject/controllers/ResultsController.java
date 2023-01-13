@@ -72,7 +72,7 @@ public class ResultsController {
 
         } else if (user2 instanceof Student) {
 
-            System.err.println("Current User has no permissions to ADD anything on results by id: ");
+            System.err.println("Current User has no permissions");
             return "error";
 
 
@@ -80,6 +80,8 @@ public class ResultsController {
         return "error";
 
     }
+
+
 
  /*   @GetMapping("/results/edit/{id}")
     public String editResultsForm(@PathVariable Long id, Model model) {
@@ -99,7 +101,7 @@ public class ResultsController {
         return "redirect:/results";
     }
 
-  /*@GetMapping("/results/new")
+ /* @GetMapping("/results/new")
     public String createResultsForm(Model model) {
         Results results = new Results();
         model.addAttribute("results", results);
